@@ -1,0 +1,32 @@
+.. _extension_modules:
+
+******************
+Extending ``GTXL``
+******************
+
+The functionality of ``GTXL`` can be extended by user-defined functions and class definitions contained in modules (files), or packages (module libraries). 
+
+A pair of Windows environment variables (``GTXL_LIB`` and ``GTXL_STARTUP``) are used to locate these modules, or libraries, and to load extensions when Excel is opened.  
+
+These environment variables are created when installing extension packages; they may also be created, or modified, by hand. 
+
+The environment variables may be defined for all computer users, or individual users may have their own unique definitions. It is not necessary to define both variables. In some cases only ``GTXL_STARTUP`` may be needed. 
+
+    *   ``GTXL_LIB`` should be set to the Windows path of a folder, or folders, that contain packages. A semicolon ``';'`` separates multiple paths. For example:: 
+        
+            C:\GTXL MyPackages;C:\GTXL TeamPackages
+
+    *   ``GTXL_STARTUP`` should be set to the Windows path of a folder containing scripts which are executed when ``GTXL`` starts. 
+    
+        These scripts will typically define, or import, functions to be used in the ``gtx()`` equation, or expression, strings. 
+        
+        There can only be one start-up folder, but it may contain any number of scripts. 
+    
+.. note::
+
+    The environment variable ``GTXL_LIB`` is intended to be used in the same way as the environment variable ``GTC_LIB``, used by a ``GTC`` installation. We expect that, if you are developing your own libraries, these variables will probably be point to the same folders.
+
+.. warning::
+
+    If an error occurs during the execution of start-up a script, a dialog box will appear with an error message. ``GTXL`` will not attempt to execute any more start-up scripts when an error occurs. 
+    

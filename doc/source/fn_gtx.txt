@@ -1,0 +1,32 @@
+GTX()
+-----
+
+.. function:: GTX(expr [,arg1,...])
+
+    Evaluate ``expr``
+    
+    :arg expr: a string containing an expression or equation
+    :arg arg1: an expression parameter
+    
+    The ``expr`` string may be in the form of an equation, e.g.::
+    
+        x = 1
+        
+    or an expression, e.g.::
+    
+        value(x)
+        
+    When ``expr`` is an equation, the token on the left-hand side 
+    of ``=`` will be associated with the value of the expression 
+    on the right-hand side. After execution, the token will appear in 
+    the cell.
+    
+    When ``expr`` is an expression, it must evaluate to a number or
+    string and that result will appear in the cell. 
+    
+    .. note::
+    
+        A ``#VALUE`` will appear in the cell if the value of the 
+        expression is not a type that Excel recognises. 
+    
+    

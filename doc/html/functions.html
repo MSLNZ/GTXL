@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Additional functions &mdash; GUM Tree Excel</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="GUM Tree Excel" href="index.html"/>
+        <link rel="up" title="GTC Modules" href="reference.html"/>
+        <link rel="prev" title="Linear algebra" href="linear_algebra.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!--  Google analytics -->
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-37615363-2', 'uncertainnumbers.com');
+          ga('send', 'pageview');
+    </script> 
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> GTXL</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="license_section.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#obtaining-gtxl">Obtaining GTXL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-for-the-first-time">Installing for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#upgrading">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#the-gtxl-calculator">The <tt class="docutils literal"><span class="pre">GTXL</span></tt> calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet_functions.html">Worksheet functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx.html">GTX()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx_err.html">GTX_ERR()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension_modules.html">Extension modules</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html"> Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_functions.html"> Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_a.html"> Evaluating type-A uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_b.html"> Evaluating type-B uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting_functions.html"> Reporting uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra.html"> Linear algebra</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""> Additional functions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GTXL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html"></a> &raquo;</li> 
+      
+          <li><a href="reference.html">GTC Modules</a> &raquo;</li>
+      
+    <li>Additional functions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="additional-functions">
+<span id="functions"></span><h1>Additional functions<a class="headerlink" href="#additional-functions" title="Permalink to this headline">¶</a></h1>
+<p>The prefix <a class="reference internal" href="#module-function" title="function"><tt class="xref py py-mod docutils literal"><span class="pre">function</span></tt></a> (or the alias <tt class="docutils literal"><span class="pre">fn</span></tt>) is needed as to resolve the names of objects defined in this module.</p>
+<span class="target" id="module-function"></span><div class="section" id="coordinate-transformation">
+<h2>Coordinate transformation<a class="headerlink" href="#coordinate-transformation" title="Permalink to this headline">¶</a></h2>
+<p>Functions <a class="reference internal" href="#function.polar" title="function.polar"><tt class="xref py py-func docutils literal"><span class="pre">polar()</span></tt></a> and <a class="reference internal" href="#function.rect" title="function.rect"><tt class="xref py py-func docutils literal"><span class="pre">rect()</span></tt></a> provide polar and
+rectangular coordinate transformations for uncertain numbers.</p>
+</div>
+<div class="section" id="implicit-problems">
+<h2>Implicit problems<a class="headerlink" href="#implicit-problems" title="Permalink to this headline">¶</a></h2>
+<p>The function <a class="reference internal" href="#function.implicit" title="function.implicit"><tt class="xref py py-func docutils literal"><span class="pre">implicit()</span></tt></a> solves problems of the form:</p>
+<blockquote>
+<div><cite>fn(x) = 0</cite></div></blockquote>
+<p>obtaining the solution <cite>x</cite> as an uncertain real number.</p>
+</div>
+<div class="section" id="utility-functions">
+<h2>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h2>
+<p>The functions <a class="reference internal" href="#function.complex_to_seq" title="function.complex_to_seq"><tt class="xref py py-func docutils literal"><span class="pre">complex_to_seq()</span></tt></a> and <a class="reference internal" href="#function.seq_to_complex" title="function.seq_to_complex"><tt class="xref py py-func docutils literal"><span class="pre">seq_to_complex()</span></tt></a> 
+support a matrix representation of complex numbers.</p>
+<p>The function <a class="reference internal" href="#function.mul2" title="function.mul2"><tt class="xref py py-func docutils literal"><span class="pre">mul2()</span></tt></a> can be used when a product of uncertain
+numbers is close to zero. The evaluation of uncertainty components
+includes a second-order contribution to the uncertainty.</p>
+</div>
+<div class="section" id="least-squares-regression">
+<h2>Least-squares regression<a class="headerlink" href="#least-squares-regression" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#function.line_fit" title="function.line_fit"><tt class="xref py py-func docutils literal"><span class="pre">line_fit()</span></tt></a> implements an ordinary least-squares 
+straight-line regression that accepts uncertain 
+real numbers for the independent and dependent variables.</p>
+<p><a class="reference internal" href="#function.line_fit_wls" title="function.line_fit_wls"><tt class="xref py py-func docutils literal"><span class="pre">line_fit_wls()</span></tt></a> implements a weighted least-squares 
+straight-line regression calculation. It accepts uncertain 
+real numbers for the independent and dependent variables.
+It is also possible to specify weights for the regression.</p>
+<p><a class="reference internal" href="#function.line_fit_wtls" title="function.line_fit_wtls"><tt class="xref py py-func docutils literal"><span class="pre">line_fit_wtls()</span></tt></a> implements a total least-squares 
+algorithm for a straight-line fitting that can perform a 
+weighted least-squares regression when both <cite>y</cite> and <cite>x</cite> data  
+are uncertain real numbers, it also handles correlation 
+between (x,y) data pairs.</p>
+</div>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="function.polar">
+<tt class="descname">polar</tt><big>(</big><em>z</em><big>)</big><a class="headerlink" href="#function.polar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a pair of uncertain real numbers for magnitude and phase.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>z</strong> (<tt class="xref py py-class docutils literal"><span class="pre">UncertainComplex</span></tt>) &#8211; an uncertain complex number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">uncertain real numbers for magnitude and phase,
+a 2-element sequence of <tt class="xref py py-class docutils literal"><span class="pre">UncertainReal</span></tt></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mf">0.95</span><span class="o">+</span><span class="mf">0.02</span><span class="n">j</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
+<span class="go">ucomplex( (0.95+0.02j), [0.0001,0.0,0.0,0.0001], inf )</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
+<span class="go">ureal(0.9502105029939418, 0.01, inf)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span>
+<span class="go">ureal(0.021049522137046434, 0.010523983863040669, inf)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z_mp</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z_mp</span><span class="o">.</span><span class="n">magnitude</span>
+<span class="go">ureal(0.9502105029939418, 0.01, inf)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z_mp</span><span class="o">.</span><span class="n">phase</span>
+<span class="go">ureal(0.021049522137046434, 0.010523983863040669, inf)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="function.rect">
+<tt class="descname">rect</tt><big>(</big><em>mag_phase</em><big>)</big><a class="headerlink" href="#function.rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an uncertain complex number in rectangular coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mag_phase</strong> (2-element sequence of <tt class="xref py py-class docutils literal"><span class="pre">UncertainReal</span></tt>) &#8211; a sequence containing the magnitude and phase (radians)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">UncertainComplex</span></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><span class="pre">mag_phase</span></tt> must contain a pair of
+uncertain real numbers for
+the magnitude and phase of a quantity.</p>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phi</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">87</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mag</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span> <span class="mf">0.87</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span> <span class="p">(</span><span class="n">mag</span><span class="p">,</span><span class="n">phi</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">s</span>
+<span class="go">&#39;(0.0455+0.869j), u=[0.0084,0.070], r=0.43, df=inf&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="function.complex_to_seq">
+<tt class="descname">complex_to_seq</tt><big>(</big><em>z</em><big>)</big><a class="headerlink" href="#function.complex_to_seq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a complex number into a 4-element sequence</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>z</strong> &#8211; a number</td>
+</tr>
+</tbody>
+</table>
+<p>If <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">yj</span></tt>, then <tt class="docutils literal"><span class="pre">matrix([[x,-y],[y,x]])</span></tt> 
+can be used to represent <tt class="docutils literal"><span class="pre">z</span></tt> in matrix computations.</p>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">function</span><span class="o">.</span><span class="n">complex_to_seq</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="go">(1.0, -2.0, 2.0, 1.0)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">linear_algebra</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span> <span class="n">function</span><span class="o">.</span><span class="n">complex_to_seq</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span> <span class="n">m</span> <span class="p">)</span>
+<span class="go">[[1.0 -2.0]</span>
+<span class="go">[2.0 1.0]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="function.seq_to_complex">
+<tt class="descname">seq_to_complex</tt><big>(</big><em>seq</em><big>)</big><a class="headerlink" href="#function.seq_to_complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a 4-element sequence, or array, into a complex number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>seq</strong> &#8211; a 4-element sequence, <a class="reference internal" href="linear_algebra.html#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a>
+or <a class="reference internal" href="linear_algebra.html#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<p>A <tt class="xref py py-obj docutils literal"><span class="pre">RuntimeError</span></tt> will be raised if <tt class="docutils literal"><span class="pre">seq</span></tt> is ill-conditioned.</p>
+<p>If <tt class="docutils literal"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">yj</span></tt>, then <tt class="docutils literal"><span class="pre">matrix([[x,-y],[y,x]])</span></tt> can
+be used to represent <tt class="docutils literal"><span class="pre">z</span></tt> in matrix computations.</p>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">seq_to_complex</span><span class="p">(</span> <span class="n">seq</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+<span class="go">(1+2j)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">linear_algebra</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">[[1 -2]</span>
+<span class="go">[2 1]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">seq_to_complex</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+<span class="go">(1+2j)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="function.mean">
+<tt class="descname">mean</tt><big>(</big><em>seq</em><big>)</big><a class="headerlink" href="#function.mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the arithmetic mean of elements in <cite>seq</cite></p>
+<p><cite>seq</cite> - an iterable object</p>
+<p>If the elements of <cite>seq</cite> are uncertain numbers, 
+an uncertain number is returned.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span> <span class="o">=</span> <span class="p">[</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fn</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="go">ureal(2.0, 0.5773502691896257, inf)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="function.line_fit">
+<tt class="descname">line_fit</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#function.line_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>-&gt; Least-squares linear intercept and slope</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; sequence of independent variable data</li>
+<li><strong>y</strong> &#8211; sequence of dependent variable data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a <a class="reference internal" href="#function.LineFitOLS" title="function.LineFitOLS"><tt class="xref py py-class docutils literal"><span class="pre">LineFitOLS</span></tt></a> object</p>
+<p><tt class="docutils literal"><span class="pre">y</span></tt> must be a sequence of uncertain real numbers.</p>
+<p>Performs an ordinary least-squares regression.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Uncertainty in the parameter estimates is found
+by propagating uncertainty <em>through</em> the regression
+formulae. This does <strong>not</strong> take account of the residuals.</p>
+<p>The function <a class="reference internal" href="type_a.html#type_a.line_fit" title="type_a.line_fit"><tt class="xref py py-func docutils literal"><span class="pre">type_a.line_fit()</span></tt></a> can be used to 
+carry out a regression analysis that obtains uncertainty in 
+the parameter estimates due to the residuals.</p>
+<p class="last">If necessary, the results of both type-A and type-B 
+analyses can be merged (see <a class="reference internal" href="type_a.html#type_a.merge_components" title="type_a.merge_components"><tt class="xref py py-func docutils literal"><span class="pre">type_a.merge_components()</span></tt></a>).</p>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a0</span> <span class="o">=</span><span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u0</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span> <span class="nb">float</span><span class="p">(</span><span class="n">x_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span> <span class="n">ureal</span><span class="p">(</span><span class="n">b0</span><span class="o">*</span><span class="n">x_i</span> <span class="o">+</span> <span class="n">a0</span><span class="p">,</span><span class="n">u0</span><span class="p">)</span> <span class="k">for</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="n">x</span> <span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">fn</span><span class="o">.</span><span class="n">line_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">a_b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">ureal(10.0, 0.11755076272905174, inf)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">ureal(-3.0, 0.022019275302527213, inf)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="function.line_fit_wls">
+<tt class="descname">line_fit_wls</tt><big>(</big><em>x</em>, <em>y</em>, <em>u_y=None</em><big>)</big><a class="headerlink" href="#function.line_fit_wls" title="Permalink to this definition">¶</a></dt>
+<dd><p>-&gt; Weighted least-squares linear regression</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; sequence of independent variable data</li>
+<li><strong>y</strong> &#8211; sequence of dependent variable data</li>
+<li><strong>u_y</strong> &#8211; sequence of uncertainties in <tt class="docutils literal"><span class="pre">y</span></tt></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a <a class="reference internal" href="#function.LineFitWLS" title="function.LineFitWLS"><tt class="xref py py-class docutils literal"><span class="pre">LineFitWLS</span></tt></a> object</p>
+<p><tt class="docutils literal"><span class="pre">y</span></tt> must be a sequence of uncertain real numbers.</p>
+<p>Performs a weighted least-squares regression.</p>
+<p>Weights are calculated from the uncertainty of 
+the <tt class="docutils literal"><span class="pre">y</span></tt> elements unless the sequence <tt class="docutils literal"><span class="pre">u_y</span></tt> 
+is provided.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The uncertainty in the parameter estimates is found
+by propagation of uncertainty <em>through</em> the regression
+formulae. This does <strong>not</strong> take account of the residuals.</p>
+<p>The function <a class="reference internal" href="type_a.html#type_a.line_fit_wls" title="type_a.line_fit_wls"><tt class="xref py py-func docutils literal"><span class="pre">type_a.line_fit_wls()</span></tt></a> can be used to 
+carry out a regression analysis that obtains uncertainty in 
+the parameter estimates due to the residuals.</p>
+<p class="last">If necessary, the results of both type-A and type-B 
+analyses can be merged (see <a class="reference internal" href="type_a.html#type_a.merge_components" title="type_a.merge_components"><tt class="xref py py-func docutils literal"><span class="pre">type_a.merge_components()</span></tt></a>).</p>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.2</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">,</span> <span class="mf">11.7</span><span class="p">,</span> <span class="mf">12.8</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span> <span class="n">ureal</span><span class="p">(</span><span class="n">y_i</span><span class="p">,</span><span class="n">u_y_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">y_i</span><span class="p">,</span> <span class="n">u_y_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">u_y</span><span class="p">)</span> <span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fit</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">line_fit_wls</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">a_b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">ureal(0.8852320675105498, 0.5297081435088364, inf)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">ureal(2.056962025316455, 0.17789201674120497, inf)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="function.line_fit_wtls">
+<tt class="descname">line_fit_wtls</tt><big>(</big><em>a_b</em>, <em>x</em>, <em>y</em>, <em>u_x=None</em>, <em>u_y=None</em>, <em>r_xy=None</em><big>)</big><a class="headerlink" href="#function.line_fit_wtls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform straight-line regression with uncertainty in <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a_b</strong> &#8211; a pair of initial estimates for <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt></li>
+<li><strong>x</strong> &#8211; list of uncertain real numbers for the independent variable</li>
+<li><strong>y</strong> &#8211; list of uncertain real numbers for the dependent variable</li>
+<li><strong>u_x</strong> &#8211; a sequence of uncertainties for the <tt class="docutils literal"><span class="pre">x</span></tt> data</li>
+<li><strong>u_y</strong> &#8211; a sequence of uncertainties for the <tt class="docutils literal"><span class="pre">y</span></tt> data</li>
+<li><strong>r_xy</strong> &#8211; correlation between x-y pairs [default: 0]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a <a class="reference internal" href="#function.LineFitWTLS" title="function.LineFitWTLS"><tt class="xref py py-class docutils literal"><span class="pre">LineFitWTLS</span></tt></a> object</p>
+<p>The elements of <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> must be uncertain numbers
+with non-zero uncertainties. The uncertainties of the <tt class="docutils literal"><span class="pre">x</span></tt> 
+and <tt class="docutils literal"><span class="pre">y</span></tt> sequences are used to calculate weights 
+for the regression unless the optional arguments
+<tt class="docutils literal"><span class="pre">u_x</span></tt> and <tt class="docutils literal"><span class="pre">u_y</span></tt> are not specified.</p>
+<p>Implements a Weighted Total Least Squares algorithm
+that allows for correlation between x-y pairs. See reference:</p>
+<p>M Krystek and M Anton, <em>Meas. Sci. Technol.</em> <strong>22</strong> (2011) 035101 (9pp)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Pearson-York test data</span>
+<span class="c"># see, e.g., Lybanon, M. in Am. J. Phys 52 (1), January 1984 </span>
+<span class="n">xin</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">1.8</span><span class="p">,</span><span class="mf">2.6</span><span class="p">,</span><span class="mf">3.3</span><span class="p">,</span><span class="mf">4.4</span><span class="p">,</span><span class="mf">5.2</span><span class="p">,</span><span class="mf">6.1</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mf">7.4</span><span class="p">]</span>
+<span class="n">wx</span><span class="o">=</span><span class="p">[</span><span class="mf">1000.0</span><span class="p">,</span><span class="mf">1000.0</span><span class="p">,</span><span class="mf">500.0</span><span class="p">,</span><span class="mf">800.0</span><span class="p">,</span><span class="mf">200.0</span><span class="p">,</span><span class="mf">80.0</span><span class="p">,</span><span class="mf">60.0</span><span class="p">,</span><span class="mf">20.0</span><span class="p">,</span><span class="mf">1.8</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+
+<span class="n">yin</span><span class="o">=</span><span class="p">[</span><span class="mf">5.9</span><span class="p">,</span><span class="mf">5.4</span><span class="p">,</span><span class="mf">4.4</span><span class="p">,</span><span class="mf">4.6</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">3.7</span><span class="p">,</span><span class="mf">2.8</span><span class="p">,</span><span class="mf">2.8</span><span class="p">,</span><span class="mf">2.4</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]</span>
+<span class="n">wy</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.8</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="mf">8.0</span><span class="p">,</span><span class="mf">20.0</span><span class="p">,</span><span class="mf">20.0</span><span class="p">,</span><span class="mf">70.0</span><span class="p">,</span><span class="mf">70.0</span><span class="p">,</span><span class="mf">100.0</span><span class="p">,</span><span class="mf">500.0</span><span class="p">]</span>
+
+<span class="c"># Convert weights to standard uncertainties </span>
+<span class="n">uxin</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">wx_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">wx_i</span> <span class="ow">in</span> <span class="n">wx</span> <span class="p">]</span>
+<span class="n">uyin</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">wy_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">wy_i</span> <span class="ow">in</span> <span class="n">wy</span> <span class="p">]</span>
+
+<span class="c"># Define uncertain numbers</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span> <span class="n">ureal</span><span class="p">(</span><span class="n">xin_i</span><span class="p">,</span><span class="n">uxin_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">xin_i</span><span class="p">,</span><span class="n">uxin_i</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">izip</span><span class="p">(</span><span class="n">xin</span><span class="p">,</span><span class="n">uxin</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span> <span class="n">ureal</span><span class="p">(</span><span class="n">yin_i</span><span class="p">,</span><span class="n">uyin_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">yin_i</span><span class="p">,</span><span class="n">uyin_i</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">izip</span><span class="p">(</span><span class="n">yin</span><span class="p">,</span><span class="n">uyin</span><span class="p">)</span> <span class="p">]</span>
+
+<span class="c"># initial estimate</span>
+<span class="n">a_b</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">line_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">a_b</span>
+
+<span class="c"># TLS returns uncertain numbers</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">line_fit_wtls</span><span class="p">(</span><span class="n">a_b</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">a_b</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="function.LineFitOLS">
+<em class="property">class </em><tt class="descname">LineFitOLS</tt><big>(</big><em>a</em>, <em>b</em>, <em>ssr</em>, <em>N</em><big>)</big><a class="headerlink" href="#function.LineFitOLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object holds results from an ordinary linear regression to data.</p>
+<dl class="attribute">
+<dt id="function.LineFitOLS.N">
+<tt class="descname">N</tt><a class="headerlink" href="#function.LineFitOLS.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of points in the sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="function.LineFitOLS.a_b">
+<tt class="descname">a_b</tt><a class="headerlink" href="#function.LineFitOLS.a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intercept and slope as uncertain numbers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="function.LineFitOLS.ssr">
+<tt class="descname">ssr</tt><a class="headerlink" href="#function.LineFitOLS.ssr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the squared residuals</p>
+<p>The sum of the squared deviations between values 
+predicted by  the model and the actual data.</p>
+<p>If weights are used during the fit, the squares of 
+weighted deviations are summed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="function.LineFitWLS">
+<em class="property">class </em><tt class="descname">LineFitWLS</tt><big>(</big><em>a</em>, <em>b</em>, <em>ssr</em>, <em>N</em><big>)</big><a class="headerlink" href="#function.LineFitWLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object holds results from a weighted LS linear regression to data.</p>
+<dl class="attribute">
+<dt id="function.LineFitWLS.N">
+<tt class="descname">N</tt><a class="headerlink" href="#function.LineFitWLS.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of points in the sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="function.LineFitWLS.a_b">
+<tt class="descname">a_b</tt><a class="headerlink" href="#function.LineFitWLS.a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intercept and slope as uncertain numbers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="function.LineFitWLS.ssr">
+<tt class="descname">ssr</tt><a class="headerlink" href="#function.LineFitWLS.ssr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the squared residuals</p>
+<p>The sum of the squared deviations between values 
+predicted by  the model and the actual data.</p>
+<p>If weights are used during the fit, the squares of 
+weighted deviations are summed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="function.LineFitWTLS">
+<em class="property">class </em><tt class="descname">LineFitWTLS</tt><big>(</big><em>a</em>, <em>b</em>, <em>ssr</em>, <em>N</em><big>)</big><a class="headerlink" href="#function.LineFitWTLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object holds results from a TLS linear regression to data.</p>
+<dl class="attribute">
+<dt id="function.LineFitWTLS.N">
+<tt class="descname">N</tt><a class="headerlink" href="#function.LineFitWTLS.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of points in the sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="function.LineFitWTLS.a_b">
+<tt class="descname">a_b</tt><a class="headerlink" href="#function.LineFitWTLS.a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intercept and slope as uncertain numbers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="function.LineFitWTLS.ssr">
+<tt class="descname">ssr</tt><a class="headerlink" href="#function.LineFitWTLS.ssr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the squared residuals</p>
+<p>The sum of the squared deviations between values 
+predicted by  the model and the actual data.</p>
+<p>If weights are used during the fit, the squares of 
+weighted deviations are summed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="function.mul2">
+<tt class="descname">mul2</tt><big>(</big><em>arg1</em>, <em>arg2</em>, <em>estimated=False</em><big>)</big><a class="headerlink" href="#function.mul2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the product of <tt class="docutils literal"><span class="pre">arg1</span></tt> and <tt class="docutils literal"><span class="pre">arg2</span></tt></p>
+<p>Extends the usual calculation of a product, by
+using second-order contributions to uncertainty.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>arg1</strong> &#8211; uncertain real or complex number</li>
+<li><strong>arg2</strong> &#8211; uncertain real or complex number</li>
+<li><strong>estimated</strong> &#8211; Boolean</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>When both arguments are estimates that always have the  
+same fixed values then <tt class="docutils literal"><span class="pre">estimated</span></tt> should be set <tt class="docutils literal"><span class="pre">False</span></tt>. 
+For instance, residual errors are often associated 
+with the value 0, or 1, which is not measured, in
+that case <tt class="docutils literal"><span class="pre">estimated=False</span></tt> is appropriate. 
+However, if either or both arguments are based on 
+measured values set <tt class="docutils literal"><span class="pre">estimated=True</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When <tt class="docutils literal"><span class="pre">estimated</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt>, and the 
+product is close to zero, the result of a  
+second-order uncertainty calculation is 
+smaller than the uncertainty calculated by 
+the usual first-order method. In some cases, 
+an uncertainty of zero will be obtained.</p>
+</div>
+<p>There are fairly strict limitations on the use of this
+function, especially for uncertain complex numbers:</p>
+<p>1) Arguments must be independent (have no common influence  
+quantities) and there can be no correlation between any 
+of the quantities that influence <cite>arg1</cite> or <cite>arg2</cite>.</p>
+<p>2) If either argument is uncertain complex, the real and 
+imaginary components must have equal uncertainties (i.e., 
+the covariance matrix must be diagonal with equal elements 
+along the diagonal) and be independent (no common influences).</p>
+<p>A <tt class="xref py py-class docutils literal"><span class="pre">RuntimeError</span></tt> exception is raised if  
+these conditions are not met.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>This function has been developed to improve the
+accuracy of uncertainty calculations where one or  
+both multiplicands are zero. In such cases, the 
+usual propagation of uncertainty fails.</p>
+<p>For example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;x1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;x2&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">x2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">ureal(0.0, 0.0, nan)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">cpt</span> <span class="ow">in</span> <span class="n">rp</span><span class="o">.</span><span class="n">budget</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">trim</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span> <span class="s">&quot;  </span><span class="si">%s</span><span class="s">: </span><span class="si">%G</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">cpt</span>
+<span class="gp">... </span>        
+<span class="go">  x1: 0</span>
+<span class="go">  x2: 0</span>
+</pre></div>
+</div>
+<p>so none of the uncertainty in <tt class="docutils literal"><span class="pre">x1</span></tt> or <tt class="docutils literal"><span class="pre">x2</span></tt> 
+is propagated to <tt class="docutils literal"><span class="pre">y</span></tt>. However, we may calculate 
+the second-order contribution</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">fn</span><span class="o">.</span><span class="n">mul2</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">ureal(0.0, 1.0, inf)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">cpt</span> <span class="ow">in</span> <span class="n">rp</span><span class="o">.</span><span class="n">budget</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">trim</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span> <span class="s">&quot;  </span><span class="si">%s</span><span class="s">: </span><span class="si">%G</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">cpt</span>
+<span class="gp">... </span>        
+<span class="go">  x1: 0.707107</span>
+<span class="go">  x2: 0.707107</span>
+</pre></div>
+</div>
+<p class="last">The product now has a standard uncertainty of unity.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><a class="reference internal" href="#function.mul2" title="function.mul2"><tt class="xref py py-func docutils literal"><span class="pre">mul2()</span></tt></a> departs from the first-order linear  
+calculation of uncertainty in the GUM.</p>
+<p class="last">In particular, the strict proportionality between 
+components of uncertainty and first-order partial
+derivatives no longer holds.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="function.implicit">
+<tt class="descname">implicit</tt><big>(</big><em>fn</em>, <em>x_min</em>, <em>x_max</em>, <em>epsilon=2.220446049250313e-16</em><big>)</big><a class="headerlink" href="#function.implicit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the solution to <span class="math">\(f(x) = 0\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fn</strong> &#8211; a Python function</li>
+<li><strong>x_min</strong> (<em>float</em>) &#8211; lower limit of search range</li>
+<li><strong>x_max</strong> (<em>float</em>) &#8211; upper limit of search range</li>
+<li><strong>epsilon</strong> (<em>float</em>) &#8211; tolerance for algorithm convergence</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The user-defined function <tt class="docutils literal"><span class="pre">fn</span></tt> takes a single uncertain real 
+number argument.</p>
+<p><tt class="docutils literal"><span class="pre">x_min</span></tt> and <tt class="docutils literal"><span class="pre">x_max</span></tt> delimit a range containing a single root 
+(ie, the function must cross the x-axis just once inside the range).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>A <tt class="xref py py-class docutils literal"><span class="pre">RuntimeError</span></tt> is raised if the search algorithm fails to converge.</li>
+<li>An <tt class="xref py py-class docutils literal"><span class="pre">AssertionError</span></tt> is raised if preconditions are not satisfied.</li>
+</ul>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">near_unity</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">near_unity</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">function</span><span class="o">.</span><span class="n">implicit</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">ureal(1.0, 0.025, inf)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="linear_algebra.html" class="btn btn-neutral" title="Linear algebra"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+
+    <!---
+    <div class="creativecommons">
+    <p>
+        This work is under a 
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+        Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+        </a>.
+    </p>
+    </div>
+    -->
+<!--
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+-->
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

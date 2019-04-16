@@ -1,0 +1,1076 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reporting functions &mdash; GUM Tree Excel</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="GUM Tree Excel" href="index.html"/>
+        <link rel="up" title="GTC Modules" href="reference.html"/>
+        <link rel="next" title="Linear algebra" href="linear_algebra.html"/>
+        <link rel="prev" title="Evaluating type-B uncertainty" href="type_b.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!--  Google analytics -->
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-37615363-2', 'uncertainnumbers.com');
+          ga('send', 'pageview');
+    </script> 
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> GTXL</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="license_section.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#obtaining-gtxl">Obtaining GTXL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-for-the-first-time">Installing for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#upgrading">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#the-gtxl-calculator">The <tt class="docutils literal"><span class="pre">GTXL</span></tt> calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet_functions.html">Worksheet functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx.html">GTX()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx_err.html">GTX_ERR()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension_modules.html">Extension modules</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html"> Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_functions.html"> Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_a.html"> Evaluating type-A uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_b.html"> Evaluating type-B uncertainty</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""> Reporting uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra.html"> Linear algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html"> Additional functions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GTXL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html"></a> &raquo;</li> 
+      
+          <li><a href="reference.html">GTC Modules</a> &raquo;</li>
+      
+    <li>Reporting functions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="reporting-functions">
+<span id="id1"></span><h1>Reporting functions<a class="headerlink" href="#reporting-functions" title="Permalink to this headline">¶</a></h1>
+<p>This module provides functions that facilitate the reporting of information about <tt class="docutils literal"><span class="pre">GTC</span></tt> results.</p>
+<p>The prefix <a class="reference internal" href="#module-reporting" title="reporting"><tt class="xref py py-mod docutils literal"><span class="pre">reporting</span></tt></a> (or the alias <tt class="docutils literal"><span class="pre">rp</span></tt>) is needed to resolve objects defined in this module.</p>
+<span class="target" id="module-reporting"></span><div class="section" id="id2">
+<h2>Reporting functions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>The function <a class="reference internal" href="#reporting.budget" title="reporting.budget"><tt class="xref py py-func docutils literal"><span class="pre">budget()</span></tt></a> generates an uncertainty budget.</li>
+<li>The function <a class="reference internal" href="#reporting.uncertainty_interval" title="reporting.uncertainty_interval"><tt class="xref py py-func docutils literal"><span class="pre">uncertainty_interval()</span></tt></a> calculates the
+upper and lower bounds of an uncertainty interval.</li>
+<li>The function <a class="reference internal" href="#reporting.uncertainty_region" title="reporting.uncertainty_region"><tt class="xref py py-func docutils literal"><span class="pre">uncertainty_region()</span></tt></a> calculates a
+set of points located on the perimeter of an
+elliptical uncertainty region.</li>
+<li>The function <a class="reference internal" href="#reporting.eigenv" title="reporting.eigenv"><tt class="xref py py-func docutils literal"><span class="pre">eigenv()</span></tt></a> evaluates the eigenvalues and
+eigenvectors of a 2-by-2 variance-covariance matrix.</li>
+<li>The function <a class="reference internal" href="#reporting.k_factor" title="reporting.k_factor"><tt class="xref py py-func docutils literal"><span class="pre">k_factor()</span></tt></a> returns the 
+coverage factor used for real-valued problems.</li>
+<li>The function <a class="reference internal" href="#reporting.k_to_dof" title="reporting.k_to_dof"><tt class="xref py py-func docutils literal"><span class="pre">k_to_dof()</span></tt></a> returns the degrees of freedom 
+corresponding to a given coverage factor and coverage probability.</li>
+<li>The function <a class="reference internal" href="#reporting.k2_factor_sq" title="reporting.k2_factor_sq"><tt class="xref py py-func docutils literal"><span class="pre">k2_factor_sq()</span></tt></a> returns   
+coverage factor squared for the complex-valued problem.</li>
+<li>The function <a class="reference internal" href="#reporting.k2_to_dof" title="reporting.k2_to_dof"><tt class="xref py py-func docutils literal"><span class="pre">k2_to_dof()</span></tt></a> returns the degrees of freedom 
+corresponding to a given coverage factor and coverage probability.</li>
+<li>Functions <a class="reference internal" href="#reporting.u_bar" title="reporting.u_bar"><tt class="xref py py-func docutils literal"><span class="pre">u_bar()</span></tt></a> and <a class="reference internal" href="#reporting.v_bar" title="reporting.v_bar"><tt class="xref py py-func docutils literal"><span class="pre">v_bar()</span></tt></a> return summary values 
+for matrices associated with 2-D uncertainty.</li>
+<li>The function <a class="reference internal" href="#reporting.mahalanobis_sq" title="reporting.mahalanobis_sq"><tt class="xref py py-func docutils literal"><span class="pre">mahalanobis_sq()</span></tt></a> evaluates the squared 
+Mahalanobis distance.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="coordinate-changes">
+<h2>Coordinate changes<a class="headerlink" href="#coordinate-changes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Functions <a class="reference internal" href="#reporting.u_polar_to_rect" title="reporting.u_polar_to_rect"><tt class="xref py py-func docutils literal"><span class="pre">u_polar_to_rect()</span></tt></a> and <a class="reference internal" href="#reporting.u_rect_to_polar" title="reporting.u_rect_to_polar"><tt class="xref py py-func docutils literal"><span class="pre">u_rect_to_polar()</span></tt></a>
+transform statements of uncertainty from one system of 
+coordinates to the other (polar and rectangular).</li>
+<li>Functions <a class="reference internal" href="#reporting.u_rect_to_tangent" title="reporting.u_rect_to_tangent"><tt class="xref py py-func docutils literal"><span class="pre">u_rect_to_tangent()</span></tt></a> and 
+<a class="reference internal" href="#reporting.u_tangent_to_rect" title="reporting.u_tangent_to_rect"><tt class="xref py py-func docutils literal"><span class="pre">u_tangent_to_rect()</span></tt></a> transform statements of uncertainty
+between rectangular coordinates and tangential coordinates
+(in-phase / quadrature).</li>
+<li>The function <a class="reference internal" href="#reporting.rotate_cv_coordinates" title="reporting.rotate_cv_coordinates"><tt class="xref py py-func docutils literal"><span class="pre">rotate_cv_coordinates()</span></tt></a> applies a rotation 
+to the coordinate axes associated with a particular 
+variance-covariance matrix.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="uncertainty-functions">
+<h2>Uncertainty functions<a class="headerlink" href="#uncertainty-functions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>The function <a class="reference internal" href="#reporting.u_component" title="reporting.u_component"><tt class="xref py py-func docutils literal"><span class="pre">u_component()</span></tt></a> returns the component of 
+uncertainty in one uncertain number due to uncertainty in
+another.</li>
+<li>The function <a class="reference internal" href="#reporting.variance_and_dof" title="reporting.variance_and_dof"><tt class="xref py py-func docutils literal"><span class="pre">variance_and_dof()</span></tt></a> evaluates the variance
+and the degrees-of-freedom for both real and
+complex uncertain numbers.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="type-functions">
+<h2>Type functions<a class="headerlink" href="#type-functions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>The function <a class="reference internal" href="#reporting.is_ureal" title="reporting.is_ureal"><tt class="xref py py-func docutils literal"><span class="pre">is_ureal()</span></tt></a> can be used to
+identify uncertain real numbers.</li>
+<li>The function <a class="reference internal" href="#reporting.is_ucomplex" title="reporting.is_ucomplex"><tt class="xref py py-func docutils literal"><span class="pre">is_ucomplex()</span></tt></a> can be used to
+identify uncertain complex numbers.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="reporting.budget">
+<tt class="descname">budget</tt><big>(</big><em>x</em>, <em>influences=None</em>, <em>key='u'</em>, <em>reverse=True</em>, <em>trim=0.01</em>, <em>max_number=None</em><big>)</big><a class="headerlink" href="#reporting.budget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sequence of label-component of uncertainty pairs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<tt class="xref py py-class docutils literal"><span class="pre">UncertainReal</span></tt> or <tt class="xref py py-class docutils literal"><span class="pre">UncertainComplex</span></tt>) &#8211; the measurand estimate</li>
+<li><strong>influences</strong> &#8211; a sequence of uncertain numbers</li>
+<li><strong>key</strong> &#8211; the list sorting key</li>
+<li><strong>reverse</strong> (<em>Boolean</em>) &#8211; determines sorting order (forward or reverse)</li>
+<li><strong>trim</strong> &#8211; remove components of uncertainty that are
+less than <tt class="docutils literal"><span class="pre">trim</span></tt> times the largest component</li>
+<li><strong>max_number</strong> &#8211; return no more than <tt class="docutils literal"><span class="pre">max_number</span></tt> components</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A sequence of namedtuple pairs is returned, with the attributes
+<tt class="docutils literal"><span class="pre">label</span></tt> and <tt class="docutils literal"><span class="pre">u</span></tt>.</p>
+<p>Each element is a pair: a label and the magnitude 
+of the component of uncertainty (see <a class="reference internal" href="core_functions.html#core.component" title="core.component"><tt class="xref py py-func docutils literal"><span class="pre">component()</span></tt></a>).</p>
+<p>The sequence <tt class="docutils literal"><span class="pre">influences</span></tt> can be used to select the influences
+are that reported.</p>
+<p>The argument <tt class="docutils literal"><span class="pre">key</span></tt> can be used to order the sequence
+by the component of uncertainty or the label (<tt class="docutils literal"><span class="pre">u</span></tt> or <tt class="docutils literal"><span class="pre">label</span></tt>).</p>
+<p>The argument <tt class="docutils literal"><span class="pre">reverse</span></tt> controls the sense of ordering.</p>
+<p>The argument <tt class="docutils literal"><span class="pre">trim</span></tt> can be used to set a minimum relative 
+magnitude of components returned. Set <tt class="docutils literal"><span class="pre">trim=0</span></tt> for a 
+complete list.</p>
+<p>The argument <tt class="docutils literal"><span class="pre">max_number</span></tt> can be used to restrict the 
+number of components returned.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;x1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;x2&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x3</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s">&#39;x3&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">)</span> <span class="o">/</span> <span class="n">x3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">l</span><span class="p">,</span><span class="n">u</span> <span class="ow">in</span> <span class="n">reporting</span><span class="o">.</span><span class="n">budget</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">: </span><span class="si">%G</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+<span class="gp">... </span>    
+<span class="go">x1: 0.333333</span>
+<span class="go">x2: 0.166667</span>
+<span class="go">x3: 0.0111111</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">l</span><span class="p">,</span><span class="n">u</span> <span class="ow">in</span> <span class="n">reporting</span><span class="o">.</span><span class="n">budget</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">: </span><span class="si">%G</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+<span class="gp">... </span>    
+<span class="go">x3: 0.0111111</span>
+<span class="go">x2: 0.166667</span>
+<span class="go">x1: 0.333333</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.u_component">
+<tt class="descname">u_component</tt><big>(</big><em>y</em>, <em>x</em><big>)</big><a class="headerlink" href="#reporting.u_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the component of uncertainty in <tt class="docutils literal"><span class="pre">y</span></tt> due to <tt class="docutils literal"><span class="pre">x</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last">
+<li><p class="first">If <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> are uncertain real numbers, return a float.</p>
+</li>
+<li><dl class="first docutils">
+<dt>If one of <tt class="docutils literal"><span class="pre">y</span></tt> or <tt class="docutils literal"><span class="pre">x</span></tt> is an uncertain complex number, return </dt>
+<dd><p class="first last">a 4-element sequence of float, containing the components of 
+the uncertainty matrix.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Otherwise, return 0.</p>
+</li>
+</ul>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">u_component</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="go">3.0</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">r</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">u_component</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+<span class="go">u_components(rr=3.0, ri=-0.0, ir=0.0, ii=3.0)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">magnitude</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>    <span class="c"># uncertain real numbers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">u_component</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+<span class="go">u_components(rr=1.0, ri=0.0, ir=0.0, ii=0.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.sensitivity">
+<tt class="descname">sensitivity</tt><big>(</big><em>y</em>, <em>x</em><big>)</big><a class="headerlink" href="#reporting.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the partial derivative of <tt class="docutils literal"><span class="pre">y</span></tt> with respect to <tt class="docutils literal"><span class="pre">x</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last">
+<li><p class="first">If <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> are uncertain real numbers, return a float.</p>
+</li>
+<li><dl class="first docutils">
+<dt>If one of <tt class="docutils literal"><span class="pre">y</span></tt> or <tt class="docutils literal"><span class="pre">x</span></tt> is an uncertain complex number, return </dt>
+<dd><p class="first last">a 4-element sequence of float, containing the elements of
+the Jacobian matrix.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Otherwise, return 0.</p>
+</li>
+</ul>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">sensitivity</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="go">3.0</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">r</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">sensitivity</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+<span class="go">jacobian_matrix(rr=3.0, ri=0.0, ir=0.0, ii=3.0)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">magnitude</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>    <span class="c"># uncertain real numbers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">sensitivity</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+<span class="go">jacobian_matrix(rr=1.0, ri=0.0, ir=0.0, ii=0.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.k_factor">
+<tt class="descname">k_factor</tt><big>(</big><em>df=inf</em>, <em>p=95</em>, <em>quick=True</em><big>)</big><a class="headerlink" href="#reporting.k_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the 1-D coverage factor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df</strong> (<em>float</em>) &#8211; the degrees-of-freedom (&gt;1)</li>
+<li><strong>quick</strong> (<em>bool</em>) &#8211; use faster algorithm</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Arg:</th><td class="field-body"><p class="first last">p: the coverage probability (%)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Evaluates the coverage factor for an uncertainty interval
+with coverage probability <tt class="docutils literal"><span class="pre">p</span></tt> and degrees-of-freedom <tt class="docutils literal"><span class="pre">df</span></tt>
+based on Student&#8217;s t-distribution.</p>
+<p>Accuracy is reduced when using the <cite>quick</cite> option, 
+for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">k_factor</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">3.181632923406346</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">k_factor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">quick</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="go">3.1824463052837175</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.k_to_dof">
+<tt class="descname">k_to_dof</tt><big>(</big><em>k</em>, <em>p=95</em><big>)</big><a class="headerlink" href="#reporting.k_to_dof" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the dof for <cite>k</cite> a 1-D coverage factor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>k</strong> &#8211; coverage factor (&gt;0)</li>
+<li><strong>p</strong> &#8211; coverage probability (%)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Evaluates the degrees-of-freedom given a coverage factor for 
+an uncertainty interval with coverage probability <tt class="docutils literal"><span class="pre">p</span></tt>
+based on Student&#8217;s t-distribution.</p>
+<p>Returns infinity for degrees-of-freedom values above 1E8.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">k_to_dof</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span>
+<span class="go">60.437564504892904</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.uncertainty_interval">
+<tt class="descname">uncertainty_interval</tt><big>(</big><em>x</em>, <em>p=95</em>, <em>quick=True</em><big>)</big><a class="headerlink" href="#reporting.uncertainty_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the upper and lower bounds of a <cite>p%</cite> uncertainty interval.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<tt class="xref py py-class docutils literal"><span class="pre">UncertainReal</span></tt>) &#8211; the value (estimate)</li>
+<li><strong>p</strong> (<em>integer</em>) &#8211; coverage probability in percent</li>
+<li><strong>quick</strong> (<em>bool</em>) &#8211; use the faster coverage factor algorithm</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a 2-element sequence</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">uncertainty_interval</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">expanded_uncertainty(lower=-0.508559112110619, upper=3.508559112110619)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.is_ureal">
+<tt class="descname">is_ureal</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#reporting.is_ureal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">True</span></tt> if <tt class="docutils literal"><span class="pre">x</span></tt> is an uncertain real number</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">is_ureal</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.is_ucomplex">
+<tt class="descname">is_ucomplex</tt><big>(</big><em>z</em><big>)</big><a class="headerlink" href="#reporting.is_ucomplex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">True</span></tt> if <tt class="docutils literal"><span class="pre">z</span></tt> is an uncertain complex number</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">is_ucomplex</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.variance_and_dof">
+<tt class="descname">variance_and_dof</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#reporting.variance_and_dof" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the variance and degrees-of-freedom.</p>
+<p>If <tt class="docutils literal"><span class="pre">x</span></tt> is an uncertain real number, a pair of real numbers 
+is returned <tt class="docutils literal"><span class="pre">(v,df)</span></tt>, where <tt class="docutils literal"><span class="pre">v</span></tt> is the standard variance and
+<tt class="docutils literal"><span class="pre">df</span></tt> is the degrees-of-freedom calculated using the
+Welch-Satterthwaite formula.</p>
+<p>If <tt class="docutils literal"><span class="pre">x</span></tt> is an uncertain complex number, a sequence and
+a float is returned <tt class="docutils literal"><span class="pre">(cv,df)</span></tt>, where <tt class="docutils literal"><span class="pre">cv</span></tt> is a 4-element
+sequence representing the variance-covariance matrix
+and <tt class="docutils literal"><span class="pre">df</span></tt> is the degrees-of-freedom, calculated 
+using the Willink-Hall total-variance method.</p>
+<p>Otherwise, returns <tt class="docutils literal"><span class="pre">(0.0,inf)</span></tt>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mf">2.3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x3</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)</span> <span class="o">/</span> <span class="n">x3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="p">,</span><span class="n">df</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">variance_and_dof</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span>
+<span class="go">0.24029987505206163</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">30.460148613530492</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.u_to_cv">
+<tt class="descname">u_to_cv</tt><big>(</big><em>u_re_im</em>, <em>r=0</em><big>)</big><a class="headerlink" href="#reporting.u_to_cv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert standard uncertainties to a covariance matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>u_re_im</strong> (<em>a 2-element sequence of float, or a float</em>) &#8211; standard uncertainties for the real and imaginary
+components</li>
+<li><strong>r</strong> (<em>float</em>) &#8211; correlation coefficient between the real
+and imaginary components</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(v_rr,v_ri,v_ir,v_ii) : the four elements of the covariance
+matrix</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">u_to_cv</span><span class="p">(</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span> <span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="go">variance_covariance(rr=0.010000000000000002, ri=0.005000000000000001,</span>
+<span class="go">ir=0.005000000000000001, ii=0.010000000000000002)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">u_to_cv</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">variance_covariance(rr=9, ri=0, ir=0, ii=9)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.cv_to_u">
+<tt class="descname">cv_to_u</tt><big>(</big><em>cv</em><big>)</big><a class="headerlink" href="#reporting.cv_to_u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return standard uncertainties and a correlation coefficient</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cv</strong> (<em>4-element sequence of float</em>) &#8211; covariance matrix</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">(u_re,u_im), r : the standard uncertainties and
+a correlation coefficient</td>
+</tr>
+</tbody>
+</table>
+<p>A pair of standard uncertainties in the real and imaginary components and a
+correlation coefficient are obtained from the variance-covariance matrix <tt class="docutils literal"><span class="pre">cv</span></tt>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">cv_to_u</span><span class="p">(</span> <span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">(standard_uncertainty(real=0.1, imag=0.1), 0.4999999999999999)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.v_bar">
+<tt class="descname">v_bar</tt><big>(</big><em>cv</em><big>)</big><a class="headerlink" href="#reporting.v_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the trace of <tt class="docutils literal"><span class="pre">cv</span></tt> divided by 2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cv</strong> (<em>a 4-element sequence of float</em>) &#8211; a variance-covariance matrix</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-.</span><span class="mi">5</span><span class="n">j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span><span class="o">+</span><span class="mf">7.1</span><span class="n">j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z1</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="n">x1</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z2</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="n">x2</span><span class="p">,(</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">z1</span> <span class="o">*</span> <span class="n">z2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">v</span>
+<span class="go">variance_covariance(rr=2.3464, ri=1.8432, ir=1.8432, ii=51.4216)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">v_bar</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
+<span class="go">26.884</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.u_bar">
+<tt class="descname">u_bar</tt><big>(</big><em>ucpt</em><big>)</big><a class="headerlink" href="#reporting.u_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the magnitude of a component of uncertainty.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ucpt</strong> (<em>float or 4-element sequence of float</em>) &#8211; a component of uncertainty</td>
+</tr>
+</tbody>
+</table>
+<p>If <tt class="docutils literal"><span class="pre">ucpt</span></tt> is a sequence, return the root sum square 
+of the elements divided by <span class="math">\(\sqrt{2}\)</span></p>
+<p>If <tt class="docutils literal"><span class="pre">ucpt</span></tt> is a number, return the magnitude.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-.</span><span class="mi">5</span><span class="n">j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span><span class="o">+</span><span class="mf">7.1</span><span class="n">j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z1</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z2</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">z1</span> <span class="o">*</span> <span class="n">z2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dy_dz1</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">u_component</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">z1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dy_dz1</span>
+<span class="go">u_components(rr=0.2, ri=-7.1, ir=7.1, ii=0.2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">u_bar</span><span class="p">(</span><span class="n">dy_dz1</span><span class="p">)</span>
+<span class="go">7.102816342831905</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.fn_bar">
+<tt class="descname">fn_bar</tt><big>(</big><em>ucpt</em><big>)</big><a class="headerlink" href="#reporting.fn_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated function name: use <a class="reference internal" href="#reporting.u_bar" title="reporting.u_bar"><tt class="xref py py-func docutils literal"><span class="pre">u_bar()</span></tt></a> instead</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.tv_bar">
+<tt class="descname">tv_bar</tt><big>(</big><em>cv</em><big>)</big><a class="headerlink" href="#reporting.tv_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated function name: use <a class="reference internal" href="#reporting.v_bar" title="reporting.v_bar"><tt class="xref py py-func docutils literal"><span class="pre">v_bar()</span></tt></a> instead</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.k2_factor_sq">
+<tt class="descname">k2_factor_sq</tt><big>(</big><em>df=inf</em>, <em>p=95</em>, <em>quick=True</em><big>)</big><a class="headerlink" href="#reporting.k2_factor_sq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the 2-D elliptical coverage factor squared</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>df</strong> (<em>float</em>) &#8211; the degrees-of-freedom (&gt;=2)</li>
+<li><strong>quick</strong> (<em>bool</em>) &#8211; use faster algorithm</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Arg:</th><td class="field-body"><p class="first last">p: the coverage probability (%)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Evaluates the square of the coverage factor for an elliptical uncertainty 
+region with coverage probability <tt class="docutils literal"><span class="pre">p</span></tt>  and <tt class="docutils literal"><span class="pre">df</span></tt> degrees of freedom
+based on the F-distribution.</p>
+<p>The <tt class="docutils literal"><span class="pre">quick</span></tt> option is not available for <cite>df</cite> less than 3</p>
+<p>Accuracy is reduced when using the <cite>quick</cite> option, 
+for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">k2_factor_sq</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">57.35717041567613</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">k2_factor_sq</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">quick</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="go">56.99999999936168</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.k2_to_dof">
+<tt class="descname">k2_to_dof</tt><big>(</big><em>k2</em>, <em>p=95</em><big>)</big><a class="headerlink" href="#reporting.k2_to_dof" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the dof for <cite>k2</cite> a 2-D coverage factor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>k2</strong> &#8211; coverage factor (&gt;0)</li>
+<li><strong>p</strong> &#8211; coverage probability (%)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Evaluates a number of degrees-of-freedom given a coverage 
+factor for  an uncertainty region with coverage probability <tt class="docutils literal"><span class="pre">p</span></tt>
+based on the F-distribution.</p>
+<p>Returns infinity for degrees-of-freedom values above 1E8.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">k2_to_dof</span><span class="p">(</span><span class="mf">2.6</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span>
+<span class="go">34.357884313812384</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.mahalanobis_sq">
+<tt class="descname">mahalanobis_sq</tt><big>(</big><em>x</em>, <em>y</em>, <em>cv</em>, <em>inverted=False</em><big>)</big><a class="headerlink" href="#reporting.mahalanobis_sq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the squared Mahalanobis distance between <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; complex number</li>
+<li><strong>y</strong> &#8211; complex number</li>
+<li><strong>cv</strong> (<em>4-element sequence of float</em>) &#8211; variance-covariance matrix</li>
+<li><strong>inverted</strong> (<em>Boolean</em>) &#8211; True if <cite>cv</cite> is inverted</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If <tt class="docutils literal"><span class="pre">inverted</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt>, the matrix inverse of
+<tt class="docutils literal"><span class="pre">cv</span></tt> is not calculated.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cv</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">u_to_cv</span><span class="p">(</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">mahalanobis_sq</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">cv</span><span class="p">)</span>
+<span class="go">0.25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">mahalanobis_sq</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">cv</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.uncertainty_region">
+<tt class="descname">uncertainty_region</tt><big>(</big><em>N</em>, <em>z</em>, <em>p=95</em>, <em>quick=True</em><big>)</big><a class="headerlink" href="#reporting.uncertainty_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sequence of N (x,y) points on a <cite>p%</cite> uncertainty ellipse</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>N</strong> (<em>int or long</em>) &#8211; number of coordinates required</li>
+<li><strong>z</strong> (<tt class="xref py py-class docutils literal"><span class="pre">UncertainComplex</span></tt>) &#8211; the value (estimate)</li>
+<li><strong>p</strong> (<em>integer</em>) &#8211; coverage probability in percent</li>
+<li><strong>quick</strong> (<em>bool</em>) &#8211; use the faster coverage factor algorithm</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function generates <tt class="docutils literal"><span class="pre">N</span></tt> points on the perimeter 
+of an elliptical uncertainty region.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">uncertainty_region</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="go">[(2.550142994135291+0j), </span>
+<span class="go">(1.9535228698161322+1.639200319559098j), </span>
+<span class="go">(0.4428276837216829+2.5114005919142004j), </span>
+<span class="go">(-1.2750714970676449+2.208488616204073j), </span>
+<span class="go">(-2.396350553537815+0.8722002723551027j), </span>
+<span class="go">(-2.396350553537815-0.8722002723551021j), </span>
+<span class="go">(-1.2750714970676467-2.208488616204072j), </span>
+<span class="go">(0.4428276837216818-2.511400591914201j), </span>
+<span class="go">(1.9535228698161318-1.639200319559099j), </span>
+<span class="go">(2.550142994135291-6.246048910271664e-16j)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.eigenv">
+<tt class="descname">eigenv</tt><big>(</big><em>cv</em><big>)</big><a class="headerlink" href="#reporting.eigenv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the eigenvalues and eigenvectors of <tt class="docutils literal"><span class="pre">cv</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cv</strong> (<em>a 4-element sequence of float</em>) &#8211; variance-covariance matrix</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a pair of eigenvalues and
+a pair of eigenvectors</td>
+</tr>
+</tbody>
+</table>
+<p>The function raises a <tt class="xref py py-class docutils literal"><span class="pre">RuntimeError</span></tt> exception if 
+the off-diagonal elements differ by more than 1E-10, 
+or if either diagonal element is negative.</p>
+<p>Calculates the eigenvalues and eigenvectors of a
+variance-covariance matrix <tt class="docutils literal"><span class="pre">cv</span></tt>.</p>
+<p>Returns a pair of eigenvalues (ordered)
+and a pair of eigenvectors (2-element sequences). The
+eigenvectors have unit magnitude.</p>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,(</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span><span class="o">.</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">eigenv</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span>
+<span class="go">(0.16000000000000003, 0.04000000000000001)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span>
+<span class="go">((0, 1), (1, 0))</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">linear_algebra</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span> <span class="p">[[</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span><span class="o">.</span><span class="mi">3</span><span class="p">],[</span><span class="o">.</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">7</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">eigenv</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span>
+<span class="go">(1.054138126514911, 0.445861873485089)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">(0.7630199824727258, 0.6463748961301957)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">(-0.6463748961301957, 0.7630199824727257)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.u_polar_to_rect">
+<tt class="descname">u_polar_to_rect</tt><big>(</big><em>z</em>, <em>u_r_phi</em>, <em>r=0</em><big>)</big><a class="headerlink" href="#reporting.u_polar_to_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return standard uncertainties, and correlation, in rectangular coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>z</strong> (<em>complex</em>) &#8211; the value (estimate)</li>
+<li><strong>u_r_phi</strong> (<em>2-element sequence of float</em>) &#8211; a pair of standard uncertainties in
+polar coordinates (angle uncertainty in radians)</li>
+<li><strong>r</strong> (<em>float</em>) &#8211; correlation between the radial
+and azimuthal components</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(u_re,u_im), r : a pair of standard uncertainties and a 
+correlation coefficient in rectangular coordinates</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Transform a pair of standard uncertainties in polar coordinates
+into a pair of standard uncertainties in rectangular coordinates.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If <tt class="xref py py-func docutils literal"><span class="pre">u/abs(z)&lt;</span> <span class="pre">5()</span></tt> the conversion is not recommended.</p>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mf">0.93</span><span class="p">,</span><span class="o">-</span><span class="mf">0.03</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_r_phi</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">u_polar_to_rect</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">u_r_phi</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">standard_uncertainty(real=0.009998229284003339, imag=0.008122182692929972)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
+<span class="go">-0.013517808883928624</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.u_rect_to_polar">
+<tt class="descname">u_rect_to_polar</tt><big>(</big><em>z</em>, <em>u_re_im</em>, <em>r=0</em><big>)</big><a class="headerlink" href="#reporting.u_rect_to_polar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return standard uncertainties, and correlation, in polar coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>z</strong> (<em>complex</em>) &#8211; the value (estimate)</li>
+<li><strong>u_re_im</strong> (<em>2-element sequence of float</em>) &#8211; a pair of standard uncertainties in
+rectangular coordinates</li>
+<li><strong>r</strong> (<em>float</em>) &#8211; correlation between the real
+and imaginary components</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(u_r,u_phi), r : a pair of standard uncertainties and 
+a correlation coefficient in polar coordinates
+(angle uncertainty in radians)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Transform a pair of standard uncertainties in rectangular
+coordinates into a pair of standard uncertainties in polar
+coordinates.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If <tt class="xref py py-func docutils literal"><span class="pre">u/abs(z)&lt;</span> <span class="pre">5()</span></tt> this conversion
+is not recommended.</p>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mf">0.93</span><span class="p">,</span><span class="o">-</span><span class="mf">0.03</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_re_im</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_p</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">u_rect_to_polar</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">u_re_im</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_p</span>
+<span class="go">(0.05000000000000001, 0.05373549001826343)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.u_rect_to_tangent">
+<tt class="descname">u_rect_to_tangent</tt><big>(</big><em>z</em>, <em>u_re_im</em>, <em>r=0</em><big>)</big><a class="headerlink" href="#reporting.u_rect_to_tangent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return standard uncertainties and correlation in tangential coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>z</strong> (<em>complex</em>) &#8211; the value (estimate)</li>
+<li><strong>u_re_im</strong> (<em>2-element sequence of float</em>) &#8211; a pair of standard uncertainties for the
+real and imaginary components of <tt class="docutils literal"><span class="pre">z</span></tt></li>
+<li><strong>r</strong> (<em>float</em>) &#8211; correlation between components</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(u_r,u_t), r_t : a pair of uncertainties expressed in
+coordinates aligned with the polar axes and a correlation
+coefficient</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Transform a pair of standard uncertainties in rectangular
+coordinates into a pair of uncertainties expressed in rotated 
+rectangular coordinates (tangential coordinates) aligned with 
+the polar axes at the point <tt class="docutils literal"><span class="pre">z</span></tt>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_rt</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">u_rect_to_tangent</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">u</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_rt</span>
+<span class="go">rt_uncertainty(radial=1.5811388300841895, tangent=1.5811388300841898)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_rt</span><span class="o">.</span><span class="n">radial</span>
+<span class="go">1.5811388300841895</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_rt</span><span class="o">.</span><span class="n">tangent</span>
+<span class="go">1.5811388300841898</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
+<span class="go">0.6</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Raises a RuntimeError if <tt class="xref py py-func docutils literal"><span class="pre">abs(z)</span> <span class="pre">==</span> <span class="pre">0()</span></tt></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.u_tangent_to_rect">
+<tt class="descname">u_tangent_to_rect</tt><big>(</big><em>z</em>, <em>u_rt</em>, <em>r=0</em><big>)</big><a class="headerlink" href="#reporting.u_tangent_to_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return standard uncertainties and correlation in rectangular coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>z</strong> (<em>complex</em>) &#8211; the value (estimate)</li>
+<li><strong>u_rt</strong> (<em>2-element sequence of float</em>) &#8211; a pair of standard uncertainties given in
+tangential coordinates</li>
+<li><strong>r</strong> (<em>float</em>) &#8211; correlation between the radial
+and tangential components</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">(u_re,u_im), r : a pair of standard uncertainties and a 
+correlation coefficient in rectangular coordinates</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Transform a pair of standard uncertainties and a correlation
+coefficient in tangential coordinates (aligned to the polar
+axes at the point <tt class="docutils literal"><span class="pre">z</span></tt>) to a pair of standard uncertainties and a
+correlation coefficient expressed in rectangular coordinates.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="o">.</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_rt</span> <span class="o">=</span> <span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">reporting</span><span class="o">.</span><span class="n">u_tangent_to_rect</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">u_rt</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">standard_uncertainty(real=0.8544003745317532, imag=0.7211102550927979)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">real</span>
+<span class="go">0.8544003745317532</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">imag</span>
+<span class="go">0.7211102550927979</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
+<span class="go">-0.5843047258450758</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="reporting.rotate_cv_coordinates">
+<tt class="descname">rotate_cv_coordinates</tt><big>(</big><em>cv</em>, <em>phi</em><big>)</big><a class="headerlink" href="#reporting.rotate_cv_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the covariance matrix in a rotated coordinate system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cv</strong> (<em>4-element sequence of float</em>) &#8211; initial covariance matrix</li>
+<li><strong>phi</strong> (<em>float</em>) &#8211; angle of rotation (radians)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">covariance matrix in rotated coordinate system</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The coordinate axes associated with the covariance matrix <tt class="docutils literal"><span class="pre">cv</span></tt> 
+are rotated counter-clockwise through an angle <tt class="docutils literal"><span class="pre">phi</span></tt>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reporting</span><span class="o">.</span><span class="n">rotate_cv_coordinates</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">v</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">variance_covariance(rr=2.5000000000000004, ri=1.5, ir=1.5, ii=2.4999999999999996)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="linear_algebra.html" class="btn btn-neutral float-right" title="Linear algebra"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="type_b.html" class="btn btn-neutral" title="Evaluating type-B uncertainty"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+
+    <!---
+    <div class="creativecommons">
+    <p>
+        This work is under a 
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+        Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+        </a>.
+    </p>
+    </div>
+    -->
+<!--
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+-->
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Evaluating type-B uncertainty &mdash; GUM Tree Excel</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="GUM Tree Excel" href="index.html"/>
+        <link rel="up" title="GTC Modules" href="reference.html"/>
+        <link rel="next" title="Reporting functions" href="reporting_functions.html"/>
+        <link rel="prev" title="Evaluating type-A uncertainty" href="type_a.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!--  Google analytics -->
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-37615363-2', 'uncertainnumbers.com');
+          ga('send', 'pageview');
+    </script> 
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> GTXL</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="license_section.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#obtaining-gtxl">Obtaining GTXL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-for-the-first-time">Installing for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#upgrading">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#the-gtxl-calculator">The <tt class="docutils literal"><span class="pre">GTXL</span></tt> calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet_functions.html">Worksheet functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx.html">GTX()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx_err.html">GTX_ERR()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension_modules.html">Extension modules</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html"> Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_functions.html"> Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_a.html"> Evaluating type-A uncertainty</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""> Evaluating type-B uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting_functions.html"> Reporting uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra.html"> Linear algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html"> Additional functions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GTXL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html"></a> &raquo;</li> 
+      
+          <li><a href="reference.html">GTC Modules</a> &raquo;</li>
+      
+    <li>Evaluating type-B uncertainty</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="evaluating-type-b-uncertainty">
+<span id="type-b"></span><h1>Evaluating type-B uncertainty<a class="headerlink" href="#evaluating-type-b-uncertainty" title="Permalink to this headline">¶</a></h1>
+<p>The prefix <a class="reference internal" href="#module-type_b" title="type_b"><tt class="xref py py-mod docutils literal"><span class="pre">type_b</span></tt></a> (or the alias <tt class="docutils literal"><span class="pre">tb</span></tt>) is needed as to resolve the names of objects defined in this module.</p>
+<span class="target" id="module-type_b"></span><div class="section" id="real-valued-problems">
+<h2>Real-valued problems<a class="headerlink" href="#real-valued-problems" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The following functions convert the half-width of  
+a 1-D  distribution to a standard uncertainty:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#type_b.uniform" title="type_b.uniform"><tt class="xref py py-func docutils literal"><span class="pre">uniform()</span></tt></a></li>
+<li><a class="reference internal" href="#type_b.triangular" title="type_b.triangular"><tt class="xref py py-func docutils literal"><span class="pre">triangular()</span></tt></a></li>
+<li><a class="reference internal" href="#type_b.u_shaped" title="type_b.u_shaped"><tt class="xref py py-func docutils literal"><span class="pre">u_shaped()</span></tt></a></li>
+<li><a class="reference internal" href="#type_b.arcsine" title="type_b.arcsine"><tt class="xref py py-func docutils literal"><span class="pre">arcsine()</span></tt></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="complex-valued-problems">
+<h2>Complex-valued problems<a class="headerlink" href="#complex-valued-problems" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The following functions convert information
+about 2-D error distributions into
+standard uncertainties:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#type_b.uniform_ring" title="type_b.uniform_ring"><tt class="xref py py-func docutils literal"><span class="pre">uniform_ring()</span></tt></a></li>
+<li><a class="reference internal" href="#type_b.uniform_disk" title="type_b.uniform_disk"><tt class="xref py py-func docutils literal"><span class="pre">uniform_disk()</span></tt></a></li>
+<li><a class="reference internal" href="#type_b.uncertain_ring" title="type_b.uncertain_ring"><tt class="xref py py-func docutils literal"><span class="pre">uncertain_ring()</span></tt></a></li>
+<li><a class="reference internal" href="#type_b.unknown_phase_product" title="type_b.unknown_phase_product"><tt class="xref py py-func docutils literal"><span class="pre">unknown_phase_product()</span></tt></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="a-table-of-distributions">
+<h2>A table of distributions<a class="headerlink" href="#a-table-of-distributions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The mapping <tt class="xref py py-obj docutils literal"><span class="pre">distribution</span></tt> selects the
+functions above by name. For example,</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ureal</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="n">type_b</span><span class="o">.</span><span class="n">distribution</span><span class="p">[</span><span class="s">&#39;gaussian&#39;</span><span class="p">](</span><span class="n">a</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">ureal(1.0, 1.5, inf)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ureal</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="n">type_b</span><span class="o">.</span><span class="n">distribution</span><span class="p">[</span><span class="s">&#39;uniform&#39;</span><span class="p">](</span><span class="n">a</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">ureal(1.0, 0.8660254037844387, inf)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ureal</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="n">type_b</span><span class="o">.</span><span class="n">distribution</span><span class="p">[</span><span class="s">&#39;arcsine&#39;</span><span class="p">](</span><span class="n">a</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">ureal(1.0, 1.0606601717798212, inf)</span>
+</pre></div>
+</div>
+<p>The names are (case-sensitive):</p>
+<ul class="simple">
+<li>&#8216;gaussian&#8217;</li>
+<li>&#8216;uniform&#8217;</li>
+<li>&#8216;triangular&#8217;</li>
+<li>&#8216;arcsine&#8217; or &#8216;u_shaped&#8217;</li>
+<li>&#8216;uniform_ring&#8217;</li>
+<li>&#8216;uniform_disk&#8217;</li>
+<li>&#8216;uncertain_ring&#8217;</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="type_b.uniform">
+<tt class="descname">uniform</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#type_b.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty of a uniform distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> &#8211; the half-width</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">type_b</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">&#39;1.0, u=0.58, df=inf&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_b.triangular">
+<tt class="descname">triangular</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#type_b.triangular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty for a triangular distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> &#8211; the half-width</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">type_b</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">&#39;1.0, u=0.41, df=inf&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_b.u_shaped">
+<tt class="descname">u_shaped</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#type_b.u_shaped" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty for an arcsine distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> &#8211; the half-width</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="#type_b.arcsine" title="type_b.arcsine"><tt class="xref py py-func docutils literal"><span class="pre">arcsine()</span></tt></a> and <a class="reference internal" href="#type_b.u_shaped" title="type_b.u_shaped"><tt class="xref py py-func docutils literal"><span class="pre">u_shaped()</span></tt></a> are equivalent</p>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">type_b</span><span class="o">.</span><span class="n">arcsine</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">&#39;1.0, u=0.71, df=inf&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_b.arcsine">
+<tt class="descname">arcsine</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#type_b.arcsine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty for an arcsine distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> &#8211; the half-width</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><a class="reference internal" href="#type_b.arcsine" title="type_b.arcsine"><tt class="xref py py-func docutils literal"><span class="pre">arcsine()</span></tt></a> and <a class="reference internal" href="#type_b.u_shaped" title="type_b.u_shaped"><tt class="xref py py-func docutils literal"><span class="pre">u_shaped()</span></tt></a> are equivalent</p>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">type_b</span><span class="o">.</span><span class="n">arcsine</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">&#39;1.0, u=0.71, df=inf&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_b.uniform_ring">
+<tt class="descname">uniform_ring</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#type_b.uniform_ring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty for a uniform ring</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> &#8211; the radius</td>
+</tr>
+</tbody>
+</table>
+<p>Convert the radius <tt class="docutils literal"><span class="pre">a</span></tt> of a uniform ring distribution 
+(in the complex plane) to a standard uncertainty</p>
+<p>See reference: B D Hall, <em>Metrologia</em> <strong>48</strong> (2011) 324-332</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">type_b</span><span class="o">.</span><span class="n">uniform_ring</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="go">&#39;(0.0+0.0j), u=[0.71,0.71], r=0.0, df=inf&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_b.uniform_disk">
+<tt class="descname">uniform_disk</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#type_b.uniform_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty for a uniform disk</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> &#8211; the radius</td>
+</tr>
+</tbody>
+</table>
+<p>Convert the radius <tt class="docutils literal"><span class="pre">a</span></tt> of a uniform disk distribution 
+(in the complex plane) to a standard uncertainty.</p>
+<p>See reference: B D Hall, <em>Metrologia</em> <strong>48</strong> (2011) 324-332</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">type_b</span><span class="o">.</span><span class="n">uniform_disk</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="go">&#39;(0.0+0.0j), u=[0.50,0.50], r=0.0, df=inf&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_b.uncertain_ring">
+<tt class="descname">uncertain_ring</tt><big>(</big><em>a_u_r</em><big>)</big><a class="headerlink" href="#type_b.uncertain_ring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty for an uncertain ring</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a_u_r</strong> &#8211; a 2-element sequence containing the (estimated) radius 
+and the standard uncertainty</td>
+</tr>
+</tbody>
+</table>
+<p>Convert a radius estimate <tt class="docutils literal"><span class="pre">a</span></tt>, with a standard
+uncertainty <tt class="docutils literal"><span class="pre">u_r</span></tt>, into a standard uncertainty.</p>
+<p>See reference: B D Hall, <em>Metrologia</em> <strong>48</strong> (2011) 324-332</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">estimate</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ucomplex</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">type_b</span><span class="o">.</span><span class="n">uncertain_ring</span><span class="p">(</span> <span class="n">estimate</span> <span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="go">&#39;(0.0+0.0j), u=[0.71,0.71], r=0.0, df=inf&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_b.unknown_phase_product">
+<tt class="descname">unknown_phase_product</tt><big>(</big><em>u1</em>, <em>u2</em><big>)</big><a class="headerlink" href="#type_b.unknown_phase_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty of a product with unknown phase</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>u1</strong> &#8211; the standard uncertainty of the first multiplicand</li>
+<li><strong>u2</strong> &#8211; the standard uncertainty of the second multiplicand</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Obtains the standard uncertainty associated
+with a complex product when estimates of the
+complex multiplicands have unknown phase.</p>
+<p>The arguments <tt class="docutils literal"><span class="pre">u1</span></tt> and <tt class="docutils literal"><span class="pre">u2</span></tt> are the standard  
+uncertainties associated with each multiplicand.</p>
+<p>See reference: B D Hall, <em>Metrologia</em> <strong>48</strong> (2011) 324-332</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre># X = Gamma1 * Gamma2
+&gt;&gt;&gt; X = ucomplex( 0, type_b.unknown_phase_product(.1,.1) )
+&gt;&gt;&gt; summary(X)
+&#39;(0.00+0.00j), u=[0.014,0.014], r=0.0, df=inf&#39;
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reporting_functions.html" class="btn btn-neutral float-right" title="Reporting functions"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="type_a.html" class="btn btn-neutral" title="Evaluating type-A uncertainty"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+
+    <!---
+    <div class="creativecommons">
+    <p>
+        This work is under a 
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+        Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+        </a>.
+    </p>
+    </div>
+    -->
+<!--
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+-->
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

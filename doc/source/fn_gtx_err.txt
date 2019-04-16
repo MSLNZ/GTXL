@@ -1,0 +1,13 @@
+GTX_ERR()
+=========
+
+.. function:: GTX_ERR(ref)
+    
+    Display an error message
+    
+    :arg ref: reference to a cell that is indicating an error  
+
+    If an error occurs during execution of :func:`GTX`, indicated
+    by ``#VALUE``, an error message may be registered by ``GTXL``
+    internally. That message can be displayed by :func:`GTX_ERR`.
+    

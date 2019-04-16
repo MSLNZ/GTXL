@@ -1,0 +1,1191 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Evaluating type-A uncertainty &mdash; GUM Tree Excel</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="GUM Tree Excel" href="index.html"/>
+        <link rel="up" title="GTC Modules" href="reference.html"/>
+        <link rel="next" title="Evaluating type-B uncertainty" href="type_b.html"/>
+        <link rel="prev" title="Core Functions and Classes" href="core_functions.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!--  Google analytics -->
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-37615363-2', 'uncertainnumbers.com');
+          ga('send', 'pageview');
+    </script> 
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> GTXL</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="license_section.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#obtaining-gtxl">Obtaining GTXL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-for-the-first-time">Installing for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#upgrading">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#the-gtxl-calculator">The <tt class="docutils literal"><span class="pre">GTXL</span></tt> calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet_functions.html">Worksheet functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx.html">GTX()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx_err.html">GTX_ERR()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension_modules.html">Extension modules</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html"> Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_functions.html"> Core functions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""> Evaluating type-A uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_b.html"> Evaluating type-B uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting_functions.html"> Reporting uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra.html"> Linear algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html"> Additional functions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GTXL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html"></a> &raquo;</li> 
+      
+          <li><a href="reference.html">GTC Modules</a> &raquo;</li>
+      
+    <li>Evaluating type-A uncertainty</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="evaluating-type-a-uncertainty">
+<span id="type-a"></span><h1>Evaluating type-A uncertainty<a class="headerlink" href="#evaluating-type-a-uncertainty" title="Permalink to this headline">¶</a></h1>
+<p>A type-A evaluation of uncertainty involves statistical analysis of data. In contrast, type-B uncertainty is obtained without statistical analysis.</p>
+<p>The prefix <a class="reference internal" href="#module-type_a" title="type_a"><tt class="xref py py-mod docutils literal"><span class="pre">type_a</span></tt></a> (or the alias <tt class="docutils literal"><span class="pre">ta</span></tt>) is needed as to resolve the names of objects defined in this module.</p>
+<span class="target" id="module-type_a"></span><div class="section" id="sample-estimates">
+<h2>Sample estimates<a class="headerlink" href="#sample-estimates" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#type_a.estimate" title="type_a.estimate"><tt class="xref py py-func docutils literal"><span class="pre">estimate()</span></tt></a> returns an uncertain number defined by
+the statistics of a sample of data.</li>
+<li><a class="reference internal" href="#type_a.multi_estimate_real" title="type_a.multi_estimate_real"><tt class="xref py py-func docutils literal"><span class="pre">multi_estimate_real()</span></tt></a> returns a sequence of related 
+uncertain real numbers defined by the multivariate statistics 
+calculated from a sample of data.</li>
+<li><a class="reference internal" href="#type_a.multi_estimate_complex" title="type_a.multi_estimate_complex"><tt class="xref py py-func docutils literal"><span class="pre">multi_estimate_complex()</span></tt></a> returns a sequence of related uncertain
+complex numbers defined by the multivariate statistics of a sample of data.</li>
+<li><a class="reference internal" href="#type_a.estimate_digitized" title="type_a.estimate_digitized"><tt class="xref py py-func docutils literal"><span class="pre">estimate_digitized()</span></tt></a> returns an uncertain number for 
+the mean of a sample of digitized data.</li>
+<li><a class="reference internal" href="#type_a.mean" title="type_a.mean"><tt class="xref py py-func docutils literal"><span class="pre">mean()</span></tt></a> returns the mean of a sample of data.</li>
+<li><a class="reference internal" href="#type_a.standard_uncertainty" title="type_a.standard_uncertainty"><tt class="xref py py-func docutils literal"><span class="pre">standard_uncertainty()</span></tt></a> evaluates the standard 
+uncertainty associated with the sample mean.</li>
+<li><a class="reference internal" href="#type_a.standard_deviation" title="type_a.standard_deviation"><tt class="xref py py-func docutils literal"><span class="pre">standard_deviation()</span></tt></a> evaluates the standard 
+deviation of a sample of data.</li>
+<li><a class="reference internal" href="#type_a.variance_covariance_complex" title="type_a.variance_covariance_complex"><tt class="xref py py-func docutils literal"><span class="pre">variance_covariance_complex()</span></tt></a> evaluates the variance
+and covariance associated with the mean real component 
+and mean imaginary component of the data.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="least-squares-regression">
+<h2>Least squares regression<a class="headerlink" href="#least-squares-regression" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#type_a.line_fit" title="type_a.line_fit"><tt class="xref py py-func docutils literal"><span class="pre">line_fit()</span></tt></a> performs an ordinary least-squares straight 
+line fit to a sample of data.</li>
+<li><a class="reference internal" href="#type_a.line_fit_wls" title="type_a.line_fit_wls"><tt class="xref py py-func docutils literal"><span class="pre">line_fit_wls()</span></tt></a> performs a weighted least-squares straight 
+line fit to a sample of data.</li>
+<li><a class="reference internal" href="#type_a.line_fit_rwls" title="type_a.line_fit_rwls"><tt class="xref py py-func docutils literal"><span class="pre">line_fit_rwls()</span></tt></a> performs a weighted least-squares  
+straight line fit to a sample of data. In this case, the weights
+are used to normalise the variability of observations.</li>
+<li><a class="reference internal" href="#type_a.line_fit_wtls" title="type_a.line_fit_wtls"><tt class="xref py py-func docutils literal"><span class="pre">line_fit_wtls()</span></tt></a> performs a weighted total least-squares straight 
+line fit to a sample of data.</li>
+<li><a class="reference internal" href="#type_a.chisq_p" title="type_a.chisq_p"><tt class="xref py py-func docutils literal"><span class="pre">chisq_p()</span></tt></a> and <a class="reference internal" href="#type_a.chisq_q" title="type_a.chisq_q"><tt class="xref py py-func docutils literal"><span class="pre">chisq_q()</span></tt></a> evaluate the Chi-square 
+probability functions <tt class="docutils literal"><span class="pre">P(nu,x)</span></tt> and <tt class="docutils literal"><span class="pre">Q(nu,x)</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">P(nu,x)</span></tt>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="merging-uncertain-components">
+<h2>Merging uncertain components<a class="headerlink" href="#merging-uncertain-components" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#type_a.merge_components" title="type_a.merge_components"><tt class="xref py py-func docutils literal"><span class="pre">merge_components()</span></tt></a> combines the results from
+type-A and type-B analyses.</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Many functions in <a class="reference internal" href="#module-type_a" title="type_a"><tt class="xref py py-mod docutils literal"><span class="pre">type_a</span></tt></a> treat the data as pure numbers. 
+Sequences of uncertain numbers can be passed to these 
+functions, but only the values will be used.</p>
+<p>This allows type-B uncertainty components to be associated with
+observational data (e.g., the type-B uncertainty due to a systematic
+error) before a type-A analysis is performed, which is often
+convenient.</p>
+<p class="last"><a class="reference internal" href="#type_a.merge_components" title="type_a.merge_components"><tt class="xref py py-func docutils literal"><span class="pre">merge_components()</span></tt></a> is provided so that the results of 
+type-A and type-B analyses on the same data sequence can be 
+combined. Note, however, that by doing so there is a risk of 
+over emphasizing uncertainty components that also contribute 
+to variability in the observations.</p>
+</div>
+</div>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="type_a.estimate">
+<tt class="descname">estimate</tt><big>(</big><em>seq</em>, <em>label=None</em><big>)</big><a class="headerlink" href="#type_a.estimate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an uncertain number for the sample mean</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seq</strong> &#8211; a sequence representing a sample of data</li>
+<li><strong>label</strong> &#8211; a label for the returned uncertain number</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">an uncertain real number, or an uncertain complex number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The elements of <tt class="docutils literal"><span class="pre">seq</span></tt> may be real numbers, complex numbers, or
+uncertain real or complex numbers. Note that if uncertain numbers
+are used, only the value attribute is used.</p>
+<p>The sample mean is an estimate of the quantity of interest. 
+The uncertainty in this estimate is the standard deviation of
+the sample mean (or the sample covariance of the mean, 
+for the complex case).</p>
+<p>Returns an uncertain real number when the mean of <tt class="docutils literal"><span class="pre">seq</span></tt> is real, 
+or an uncertain complex number when the mean is complex.</p>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">type_a</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">ureal(7.0, 1.1547005383792515, 14)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.91518731126816899</span><span class="o">+</span><span class="mf">1.5213442955575518</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">0.96572684493613492</span><span class="o">-</span><span class="mf">0.18547192979059401</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">0.23216598132006649</span><span class="o">+</span><span class="mf">1.6951311687588568</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">2.1642786101267397</span><span class="o">+</span><span class="mf">2.2024333895672563</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.1812532664590505</span><span class="o">+</span><span class="mf">0.59062101107787357</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.2259264339405165</span><span class="o">+</span><span class="mf">1.1499373179910186</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="o">-</span><span class="mf">0.99422341300318684</span><span class="o">+</span><span class="mf">1.7359338393131392</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.2122867690240853</span><span class="o">+</span><span class="mf">0.32535154897909946</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">2.0122536479379196</span><span class="o">-</span><span class="mf">0.23283009302603963</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.6770229536619197</span><span class="o">+</span><span class="mf">0.77195994890476838</span><span class="n">j</span><span class="p">)]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">type_a</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">ucomplex( (1.0591878405671413+0.9574410497332932j),</span>
+<span class="go">    [   0.08341505910928249,</span>
+<span class="go">        -0.02406291026406226,</span>
+<span class="go">        -0.02406291026406226,</span>
+<span class="go">        0.07051975704291644</span>
+<span class="go">    ],</span>
+<span class="go">    9</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.multi_estimate_real">
+<tt class="descname">multi_estimate_real</tt><big>(</big><em>seq_of_seq</em>, <em>labels=None</em><big>)</big><a class="headerlink" href="#type_a.multi_estimate_real" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sequence of related uncertain real numbers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seq_of_seq</strong> &#8211; a sequence of real-valued sequences</li>
+<li><strong>labels</strong> &#8211; a sequence of labels</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a sequence of uncertain real numbers</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The sequences in <tt class="docutils literal"><span class="pre">seq_of_seq</span></tt> must all be the same length.</p>
+<p>Defines uncertain numbers using the sample statistics from 
+the sequences of data, including the sample covariance.</p>
+<p>The uncertain numbers returned are considered related, so that a 
+degrees-of-freedom calculation can be performed even if there is 
+correlation between them.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre># From Appendix H2 in the GUM
+
+&gt;&gt;&gt; V = [5.007,4.994,5.005,4.990,4.999]
+&gt;&gt;&gt; I = [19.663E-3,19.639E-3,19.640E-3,19.685E-3,19.678E-3]
+&gt;&gt;&gt; phi = [1.0456,1.0438,1.0468,1.0428,1.0433]
+&gt;&gt;&gt; v,i,p = type_a.multi_estimate_real((V,I,phi),labels=(&#39;V&#39;,&#39;I&#39;,&#39;phi&#39;))
+&gt;&gt;&gt; v
+ureal(4.999, 0.0032093613071761794, 4, label=V)
+&gt;&gt;&gt; i
+ureal(0.019661, 9.471008394041335e-06, 4, label=I)
+&gt;&gt;&gt; p
+ureal(1.04446, 0.0007520638270785368, 4, label=phi)
+
+&gt;&gt;&gt; r = v/i*cos(p)
+&gt;&gt;&gt; r
+ureal(127.73216992810208, 0.0710714073969954, 4.0)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.multi_estimate_complex">
+<tt class="descname">multi_estimate_complex</tt><big>(</big><em>seq_of_seq</em>, <em>labels=None</em><big>)</big><a class="headerlink" href="#type_a.multi_estimate_complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sequence of related uncertain complex numbers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seq_of_seq</strong> &#8211; a sequence of complex number sequences</li>
+<li><strong>labels</strong> &#8211; a sequence of labels for the uncertain numbers</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a sequence of uncertain complex numbers</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The sequences in <tt class="docutils literal"><span class="pre">seq_of_seq</span></tt> must all be the same length.</p>
+<p>Defines uncertain numbers using the sample statistics, including
+the sample covariance.</p>
+<p>The uncertain complex numbers returned are considered related,
+so they may be used in a degrees-of-freedom calculation even 
+if there is correlation between them.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre># From Appendix H2 in the GUM
+
+&gt;&gt;&gt; I = [ complex(x) for x in (19.663E-3,19.639E-3,19.640E-3,19.685E-3,19.678E-3) ]
+&gt;&gt;&gt; V = [ complex(x) for x in (5.007,4.994,5.005,4.990,4.999)]
+&gt;&gt;&gt; P = [ complex(0,p) for p in (1.0456,1.0438,1.0468,1.0428,1.0433) ]
+
+&gt;&gt;&gt; v,i,p = type_a.multi_estimate_complex( (V,I,P) )
+
+&gt;&gt;&gt; get_correlation(v.real,i.real)
+-0.355311219817512
+
+&gt;&gt;&gt; z = v/i*exp(p)
+&gt;&gt;&gt; z.real
+ureal(127.73216992810208, 0.0710714073969954, 4.0)
+&gt;&gt;&gt; get_correlation(z.real,z.imag)
+-0.5884297844235157
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.estimate_digitized">
+<tt class="descname">estimate_digitized</tt><big>(</big><em>seq</em>, <em>delta</em>, <em>label=None</em>, <em>truncate=False</em><big>)</big><a class="headerlink" href="#type_a.estimate_digitized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an uncertain number for the mean of a sample of digitized data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>seq</strong> &#8211; a sequence of real numbers or uncertain real numbers</li>
+<li><strong>delta</strong> &#8211; a real number for the digitization step size</li>
+<li><strong>label</strong> &#8211; a label for the returned uncertain number</li>
+<li><strong>truncate</strong> &#8211; if True, truncation is assumed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>When an instrument rounds, or truncates, readings to a 
+finite resolution <tt class="docutils literal"><span class="pre">delta</span></tt>, the uncertainty in an estimate  
+of the mean of a sequence of readings depends on the amount  
+of scatter in the data and on the number of points in the sample.</p>
+<p>The argument <tt class="docutils literal"><span class="pre">truncate</span></tt> should be set <tt class="docutils literal"><span class="pre">True</span></tt> 
+if an instrument truncates readings instead of rounding them.</p>
+<p>See reference: R Willink, <em>Metrologia</em>, <strong>44</strong> (2007) 73-81</p>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre># LSD = 0.0001, data varies between -0.0055 and -0.0057
+&gt;&gt;&gt; seq = (-0.0056,-0.0055,-0.0056,-0.0056,-0.0056, 
+...      -0.0057,-0.0057,-0.0056,-0.0056,-0.0057,-0.0057)
+&gt;&gt;&gt; type_a.estimate_digitized(seq,0.0001)
+ureal(-0.005627272727272727, 1.9497827808661157e-05, 10)
+
+# LSD = 0.0001, data varies between -0.0056 and -0.0057
+&gt;&gt;&gt; seq = (-0.0056,-0.0056,-0.0056,-0.0056,-0.0056,
+... -0.0057,-0.0057,-0.0056,-0.0056,-0.0057,-0.0057)
+&gt;&gt;&gt; type_a.estimate_digitized(seq,0.0001)
+ureal(-0.005636363636363636, 1.5212000482437775e-05, 10)
+
+# LSD = 0.0001, no spread in data values
+&gt;&gt;&gt; seq = (-0.0056,-0.0056,-0.0056,-0.0056,-0.0056,
+... -0.0056,-0.0056,-0.0056,-0.0056,-0.0056,-0.0056)
+&gt;&gt;&gt; type_a.estimate_digitized(seq,0.0001)
+ureal(-0.0056, 2.886751345948129e-05, 10)
+
+# LSD = 0.0001, no spread in data values, fewer points
+&gt;&gt;&gt; seq = (-0.0056,-0.0056,-0.0056)
+&gt;&gt;&gt; type_a.estimate_digitized(seq,0.0001)
+ureal(-0.0056, 3.291402943021917e-05, 2)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.mean">
+<tt class="descname">mean</tt><big>(</big><em>seq</em><big>)</big><a class="headerlink" href="#type_a.mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the arithmetic mean of data in <tt class="docutils literal"><span class="pre">seq</span></tt></p>
+<p>If <tt class="docutils literal"><span class="pre">seq</span></tt> contains real or uncertain real numbers,
+a real number is returned.</p>
+<p>If <tt class="docutils literal"><span class="pre">seq</span></tt> contains complex or uncertain complex
+numbers, a complex number is returned.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">type_a</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">7.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.standard_deviation">
+<tt class="descname">standard_deviation</tt><big>(</big><em>seq</em>, <em>mu=None</em><big>)</big><a class="headerlink" href="#type_a.standard_deviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sample standard deviation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>seq</strong> &#8211; sequence of numbers</li>
+<li><strong>mu</strong> &#8211; the arithmetic mean of <tt class="docutils literal"><span class="pre">seq</span></tt></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If <tt class="docutils literal"><span class="pre">seq</span></tt> contains complex or uncertain complex
+numbers, the standard deviation in the real and
+imaginary components is evaluated, as well as
+the sample correlation coefficient.</p>
+<p>Otherwise the sample standard deviation is returned.</p>
+<p>The calculation only uses the <cite>value</cite> attribute 
+of uncertain numbers.</p>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">type_a</span><span class="o">.</span><span class="n">standard_deviation</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">4.47213595499958</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.91518731126816899</span><span class="o">+</span><span class="mf">1.5213442955575518</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">0.96572684493613492</span><span class="o">-</span><span class="mf">0.18547192979059401</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">0.23216598132006649</span><span class="o">+</span><span class="mf">1.6951311687588568</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">2.1642786101267397</span><span class="o">+</span><span class="mf">2.2024333895672563</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.1812532664590505</span><span class="o">+</span><span class="mf">0.59062101107787357</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.2259264339405165</span><span class="o">+</span><span class="mf">1.1499373179910186</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="o">-</span><span class="mf">0.99422341300318684</span><span class="o">+</span><span class="mf">1.7359338393131392</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.2122867690240853</span><span class="o">+</span><span class="mf">0.32535154897909946</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">2.0122536479379196</span><span class="o">-</span><span class="mf">0.23283009302603963</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.6770229536619197</span><span class="o">+</span><span class="mf">0.77195994890476838</span><span class="n">j</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sd</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">standard_deviation</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sd</span>
+<span class="go">standard_deviation(real=0.913318449990377, imag=0.8397604244242309)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
+<span class="go">-0.31374045124595246</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.standard_uncertainty">
+<tt class="descname">standard_uncertainty</tt><big>(</big><em>seq</em>, <em>mu=None</em><big>)</big><a class="headerlink" href="#type_a.standard_uncertainty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard uncertainty of the sample mean</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seq</strong> &#8211; sequence of numbers</li>
+<li><strong>mu</strong> &#8211; the arithmetic mean of <tt class="docutils literal"><span class="pre">seq</span></tt></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If <tt class="docutils literal"><span class="pre">seq</span></tt> contains complex or uncertain complex
+numbers, the standard uncertainties of the real and
+imaginary components are evaluated, as well as the
+sample correlation coefficient.</p>
+<p>Otherwise the standard uncertainty of the sample mean 
+is returned.</p>
+<p>The calculation only uses the <cite>value</cite> attribute 
+of uncertain numbers.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">type_a</span><span class="o">.</span><span class="n">standard_uncertainty</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">1.1547005383792515</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.91518731126816899</span><span class="o">+</span><span class="mf">1.5213442955575518</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">0.96572684493613492</span><span class="o">-</span><span class="mf">0.18547192979059401</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">0.23216598132006649</span><span class="o">+</span><span class="mf">1.6951311687588568</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">2.1642786101267397</span><span class="o">+</span><span class="mf">2.2024333895672563</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.1812532664590505</span><span class="o">+</span><span class="mf">0.59062101107787357</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.2259264339405165</span><span class="o">+</span><span class="mf">1.1499373179910186</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="o">-</span><span class="mf">0.99422341300318684</span><span class="o">+</span><span class="mf">1.7359338393131392</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.2122867690240853</span><span class="o">+</span><span class="mf">0.32535154897909946</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">2.0122536479379196</span><span class="o">-</span><span class="mf">0.23283009302603963</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.6770229536619197</span><span class="o">+</span><span class="mf">0.77195994890476838</span><span class="n">j</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">standard_uncertainty</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">standard_uncertainty(real=0.28881665310241805, imag=0.2655555630050262)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span><span class="o">.</span><span class="n">real</span>
+<span class="go">0.28881665310241805</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
+<span class="go">-0.31374045124595246</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.variance_covariance_complex">
+<tt class="descname">variance_covariance_complex</tt><big>(</big><em>seq</em>, <em>mu=None</em><big>)</big><a class="headerlink" href="#type_a.variance_covariance_complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sample variance-covariance matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>seq</strong> &#8211; sequence of numbers</li>
+<li><strong>mu</strong> &#8211; the arithmetic mean of <tt class="docutils literal"><span class="pre">seq</span></tt></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a 4-element sequence</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If <tt class="docutils literal"><span class="pre">mu</span></tt> is not provided it will be evaluated
+(see <a class="reference internal" href="#type_a.mean" title="type_a.mean"><tt class="xref py py-func docutils literal"><span class="pre">mean()</span></tt></a>).</p>
+<p><tt class="docutils literal"><span class="pre">seq</span></tt> may contain numbers or uncertain numbers.
+However, the calculation only uses the <cite>value</cite> 
+of uncertain numbers.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.91518731126816899</span><span class="o">+</span><span class="mf">1.5213442955575518</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">0.96572684493613492</span><span class="o">-</span><span class="mf">0.18547192979059401</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">0.23216598132006649</span><span class="o">+</span><span class="mf">1.6951311687588568</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">2.1642786101267397</span><span class="o">+</span><span class="mf">2.2024333895672563</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.1812532664590505</span><span class="o">+</span><span class="mf">0.59062101107787357</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.2259264339405165</span><span class="o">+</span><span class="mf">1.1499373179910186</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="o">-</span><span class="mf">0.99422341300318684</span><span class="o">+</span><span class="mf">1.7359338393131392</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.2122867690240853</span><span class="o">+</span><span class="mf">0.32535154897909946</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">2.0122536479379196</span><span class="o">-</span><span class="mf">0.23283009302603963</span><span class="n">j</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">(</span><span class="mf">1.6770229536619197</span><span class="o">+</span><span class="mf">0.77195994890476838</span><span class="n">j</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">type_a</span><span class="o">.</span><span class="n">variance_covariance_complex</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">variance_covariance(rr=0.8341505910928249, ri=-0.24062910264062262, </span>
+<span class="go">    ir=-0.24062910264062262, ii=0.7051975704291644)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">variance_covariance_complex</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">0.8341505910928249</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">rr</span>
+<span class="go">0.8341505910928249</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">ii</span>
+<span class="go">0.7051975704291644</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.line_fit">
+<tt class="descname">line_fit</tt><big>(</big><em>x</em>, <em>y</em>, <em>label=None</em><big>)</big><a class="headerlink" href="#type_a.line_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a least-squares straight-line fit to the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; sequence of stimulus data (independent-variable)</li>
+<li><strong>y</strong> &#8211; sequence of response data (dependent-variable)</li>
+<li><strong>label</strong> &#8211; suffix to label the uncertain numbers <cite>a</cite> and <cite>b</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an object containing regression results</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#type_a.LineFitOLS" title="type_a.LineFitOLS"><tt class="xref py py-class docutils literal"><span class="pre">type_a.LineFitOLS</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Performs an ordinary least-squares regression of <tt class="docutils literal"><span class="pre">y</span></tt> to <tt class="docutils literal"><span class="pre">x</span></tt>.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">15.6</span><span class="p">,</span><span class="mf">17.5</span><span class="p">,</span><span class="mf">36.6</span><span class="p">,</span><span class="mf">43.8</span><span class="p">,</span><span class="mf">58.2</span><span class="p">,</span><span class="mf">61.6</span><span class="p">,</span><span class="mf">64.2</span><span class="p">,</span><span class="mf">70.4</span><span class="p">,</span><span class="mf">98.8</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">line_fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">a_b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">ureal(4.813888888888881, 4.886206312183355, 7)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">ureal(9.408333333333335, 0.868301647656361, 7)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_p</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="mf">5.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dof</span><span class="p">(</span><span class="n">y_p</span><span class="p">)</span>
+<span class="go">7.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.line_fit_wls">
+<tt class="descname">line_fit_wls</tt><big>(</big><em>x</em>, <em>y</em>, <em>u_y</em>, <em>label=None</em><big>)</big><a class="headerlink" href="#type_a.line_fit_wls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a weighted least-squares straight-line fit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; sequence of stimulus data (independent-variable)</li>
+<li><strong>y</strong> &#8211; sequence of response data (dependent-variable)</li>
+<li><strong>u_y</strong> &#8211; sequence of uncertainties in the response data</li>
+<li><strong>label</strong> &#8211; suffix to label the uncertain numbers <cite>a</cite> and <cite>b</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an object containing regression results</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#type_a.LineFitWLS" title="type_a.LineFitWLS"><tt class="xref py py-class docutils literal"><span class="pre">type_a.LineFitWLS</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.2</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">,</span> <span class="mf">11.7</span><span class="p">,</span> <span class="mf">12.8</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u_y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fit</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">line_fit_wls</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">u_y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fit</span><span class="o">.</span><span class="n">a_b</span>
+<span class="go">intercept_slope(</span>
+<span class="go">    a=ureal(0.8852320675105488, 0.5297081435088364, inf),</span>
+<span class="go">    b=ureal(2.0569620253164556, 0.177892016741205, inf)</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.line_fit_rwls">
+<tt class="descname">line_fit_rwls</tt><big>(</big><em>x</em>, <em>y</em>, <em>s_y</em>, <em>label=None</em><big>)</big><a class="headerlink" href="#type_a.line_fit_rwls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a relative weighted least-squares straight-line fit</p>
+<p>The <tt class="docutils literal"><span class="pre">s_y</span></tt> values are used to scale variability in the <tt class="docutils literal"><span class="pre">y</span></tt> data.
+It is assumed that the standard deviation of each <tt class="docutils literal"><span class="pre">y</span></tt> value is 
+proportional to the corresponding <tt class="docutils literal"><span class="pre">s_y</span></tt> scale factor.
+The unknown common factor in the uncertainties is estimated from the residuals.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; sequence of stimulus data (independent-variable)</li>
+<li><strong>y</strong> &#8211; sequence of response data (dependent-variable)</li>
+<li><strong>s_y</strong> &#8211; sequence of scale factors</li>
+<li><strong>label</strong> &#8211; suffix to label the uncertain numbers <cite>a</cite> and <cite>b</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an object containing regression results</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#type_a.LineFitRWLS" title="type_a.LineFitRWLS"><tt class="xref py py-class docutils literal"><span class="pre">type_a.LineFitRWLS</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.014</span><span class="p">,</span><span class="mf">5.225</span><span class="p">,</span><span class="mf">7.004</span><span class="p">,</span><span class="mf">9.061</span><span class="p">,</span><span class="mf">11.201</span><span class="p">,</span><span class="mf">12.762</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s_y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fit</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">line_fit_rwls</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">s_y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">a_b</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">fit</span>
+<span class="go">Relative Weighted Least-Squares Results:</span>
+
+<span class="go">  Number of points: 6</span>
+<span class="go">  Intercept: 1.14, u=0.12, df=4.0</span>
+<span class="go">  Slope: 1.973, u=0.041, df=4.0</span>
+<span class="go">  Correlation: -0.87</span>
+<span class="go">  Sum of the squared residuals: 1.33952</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.line_fit_wtls">
+<tt class="descname">line_fit_wtls</tt><big>(</big><em>a0_b0</em>, <em>x</em>, <em>y</em>, <em>u_x</em>, <em>u_y</em>, <em>r_xy=None</em>, <em>label=None</em><big>)</big><a class="headerlink" href="#type_a.line_fit_wtls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a total least-squares straight-line fit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a0_b0</strong> &#8211; initial line intercept and slope</li>
+<li><strong>x</strong> &#8211; sequence of independent-variable data</li>
+<li><strong>y</strong> &#8211; sequence of dependent-variable data</li>
+<li><strong>u_x</strong> &#8211; sequence of uncertainties in <tt class="docutils literal"><span class="pre">x</span></tt></li>
+<li><strong>u_y</strong> &#8211; sequence of uncertainties in <tt class="docutils literal"><span class="pre">y</span></tt></li>
+<li><strong>r_xy</strong> &#8211; correlation between x-y pairs</li>
+<li><strong>label</strong> &#8211; suffix labeling the uncertain numbers <cite>a</cite> and <cite>b</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an object containing the fitting results</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#type_a.LineFitWTLS" title="type_a.LineFitWTLS"><tt class="xref py py-class docutils literal"><span class="pre">type_a.LineFitWTLS</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Based on paper by M Krystek and M Anton,
+<em>Meas. Sci. Technol.</em> <strong>22</strong> (2011) 035101 (9pp)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre># Pearson-York test data see, e.g., 
+# Lybanon, M. in Am. J. Phys 52 (1) 1984 
+&gt;&gt;&gt; x=[0.0,0.9,1.8,2.6,3.3,4.4,5.2,6.1,6.5,7.4]
+&gt;&gt;&gt; wx=[1000.0,1000.0,500.0,800.0,200.0,80.0,60.0,20.0,1.8,1.0]
+
+&gt;&gt;&gt; y=[5.9,5.4,4.4,4.6,3.5,3.7,2.8,2.8,2.4,1.5]
+&gt;&gt;&gt; wy=[1.0,1.8,4.0,8.0,20.0,20.0,70.0,70.0,100.0,500.0]
+
+# initial estimates are needed
+&gt;&gt;&gt; a0_b0 = type_a.line_fit(x,y).a_b
+
+# standard uncertainties required for weighting
+&gt;&gt;&gt; ux=[1./math.sqrt(wx_i) for wx_i in wx ]
+&gt;&gt;&gt; uy=[1./math.sqrt(wy_i) for wy_i in wy ]
+
+&gt;&gt;&gt; result = type_a.line_fit_wtls(a0_b0,x,y,ux,uy)
+&gt;&gt;&gt; result.a_b
+intercept_slope(a=ureal(5.479910225691824, 0.2923714833810113, 8),
+    b=ureal(-0.4805334077856292, 0.05757170662942975, 8))
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="type_a.LineFitOLS">
+<em class="property">class </em><tt class="descname">LineFitOLS</tt><big>(</big><em>a</em>, <em>b</em>, <em>ssr</em>, <em>N</em><big>)</big><a class="headerlink" href="#type_a.LineFitOLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object holds results for an ordinary least-squares regression to data.</p>
+<p>It can also be used to apply the results of a regression analysis.</p>
+<dl class="attribute">
+<dt id="type_a.LineFitOLS.N">
+<tt class="descname">N</tt><a class="headerlink" href="#type_a.LineFitOLS.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of points in the sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="type_a.LineFitOLS.a_b">
+<tt class="descname">a_b</tt><a class="headerlink" href="#type_a.LineFitOLS.a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intercept and slope as uncertain numbers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="type_a.LineFitOLS.ssr">
+<tt class="descname">ssr</tt><a class="headerlink" href="#type_a.LineFitOLS.ssr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the squared residuals</p>
+<p>The sum of the squared deviations between values 
+predicted by  the model and the actual data.</p>
+<p>If weights are used during the fit, the squares of 
+weighted deviations are summed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="type_a.LineFitOLS.x_from_y">
+<tt class="descname">x_from_y</tt><big>(</big><em>yseq</em>, <em>label=None</em><big>)</big><a class="headerlink" href="#type_a.LineFitOLS.x_from_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate a stimulus <tt class="docutils literal"><span class="pre">x</span></tt> that caused the response <tt class="docutils literal"><span class="pre">yseq</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>yseq</strong> &#8211; a sequence of further observations of <tt class="docutils literal"><span class="pre">y</span></tt></li>
+<li><strong>label</strong> &#8211; a label for the estimate of <cite>y</cite> based on <tt class="docutils literal"><span class="pre">yseq</span></tt></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="gp">... </span>                <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.028</span><span class="p">,</span> <span class="mf">0.029</span><span class="p">,</span> <span class="mf">0.029</span><span class="p">,</span> <span class="mf">0.084</span><span class="p">,</span> <span class="mf">0.083</span><span class="p">,</span> <span class="mf">0.081</span><span class="p">,</span> <span class="mf">0.135</span><span class="p">,</span> <span class="mf">0.131</span><span class="p">,</span>
+<span class="gp">... </span>                <span class="mf">0.133</span><span class="p">,</span> <span class="mf">0.180</span><span class="p">,</span> <span class="mf">0.181</span><span class="p">,</span> <span class="mf">0.183</span><span class="p">,</span> <span class="mf">0.215</span><span class="p">,</span> <span class="mf">0.230</span><span class="p">,</span> <span class="mf">0.216</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fit</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">line_fit</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span><span class="n">y_data</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x0</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">x_from_y</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0712</span><span class="p">,</span> <span class="mf">0.0716</span><span class="p">]</span> <span class="p">)</span>            
+<span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="go">&#39;0.260, u=0.018, df=13.0&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="type_a.LineFitOLS.y_from_x">
+<tt class="descname">y_from_x</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#type_a.LineFitOLS.y_from_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an uncertain number <tt class="docutils literal"><span class="pre">y</span></tt> for the response to <tt class="docutils literal"><span class="pre">x</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; a real number, or an uncertain real number</td>
+</tr>
+</tbody>
+</table>
+<p>Estimates the response <tt class="docutils literal"><span class="pre">y</span></tt> that might be observed for a stimulus <tt class="docutils literal"><span class="pre">x</span></tt></p>
+<p>An uncertain real number can be used for <tt class="docutils literal"><span class="pre">x</span></tt>, in which
+case the associated uncertainty is also propagated into <tt class="docutils literal"><span class="pre">y</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="type_a.LineFitWLS">
+<em class="property">class </em><tt class="descname">LineFitWLS</tt><big>(</big><em>a</em>, <em>b</em>, <em>ssr</em>, <em>N</em><big>)</big><a class="headerlink" href="#type_a.LineFitWLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object holds results from a weighted LS linear regression to data.</p>
+<dl class="attribute">
+<dt id="type_a.LineFitWLS.N">
+<tt class="descname">N</tt><a class="headerlink" href="#type_a.LineFitWLS.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of points in the sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="type_a.LineFitWLS.a_b">
+<tt class="descname">a_b</tt><a class="headerlink" href="#type_a.LineFitWLS.a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intercept and slope as uncertain numbers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="type_a.LineFitWLS.ssr">
+<tt class="descname">ssr</tt><a class="headerlink" href="#type_a.LineFitWLS.ssr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the squared residuals</p>
+<p>The sum of the squared deviations between values 
+predicted by  the model and the actual data.</p>
+<p>If weights are used during the fit, the squares of 
+weighted deviations are summed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="type_a.LineFitRWLS">
+<em class="property">class </em><tt class="descname">LineFitRWLS</tt><big>(</big><em>a</em>, <em>b</em>, <em>ssr</em>, <em>N</em><big>)</big><a class="headerlink" href="#type_a.LineFitRWLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object holds results from a relative weighted least-squares regression.
+The weight factors provided normalise the variability of observations.</p>
+<dl class="attribute">
+<dt id="type_a.LineFitRWLS.N">
+<tt class="descname">N</tt><a class="headerlink" href="#type_a.LineFitRWLS.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of points in the sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="type_a.LineFitRWLS.a_b">
+<tt class="descname">a_b</tt><a class="headerlink" href="#type_a.LineFitRWLS.a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intercept and slope as uncertain numbers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="type_a.LineFitRWLS.ssr">
+<tt class="descname">ssr</tt><a class="headerlink" href="#type_a.LineFitRWLS.ssr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the squared residuals</p>
+<p>The sum of the squared deviations between values 
+predicted by  the model and the actual data.</p>
+<p>If weights are used during the fit, the squares of 
+weighted deviations are summed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="type_a.LineFitRWLS.x_from_y">
+<tt class="descname">x_from_y</tt><big>(</big><em>yseq</em>, <em>s_y</em>, <em>label=None</em><big>)</big><a class="headerlink" href="#type_a.LineFitRWLS.x_from_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates a stimulus <tt class="docutils literal"><span class="pre">x</span></tt> that generated the response sequence <tt class="docutils literal"><span class="pre">yseq</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>yseq</strong> &#8211; a sequence of further observations of <tt class="docutils literal"><span class="pre">y</span></tt></li>
+<li><strong>s_y</strong> &#8211; a scale factor for the uncertainty of the <tt class="docutils literal"><span class="pre">yseq</span></tt></li>
+<li><strong>label</strong> &#8211; a label for the estimate of <cite>y</cite> based on <tt class="docutils literal"><span class="pre">yseq</span></tt></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="type_a.LineFitRWLS.y_from_x">
+<tt class="descname">y_from_x</tt><big>(</big><em>x</em>, <em>s_y</em><big>)</big><a class="headerlink" href="#type_a.LineFitRWLS.y_from_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an uncertain number <tt class="docutils literal"><span class="pre">y</span></tt> for the response to <tt class="docutils literal"><span class="pre">x</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; a real number, or an uncertain real number</li>
+<li><strong>s_y</strong> &#8211; a scale factor for the response uncertainty</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Estimates the response <tt class="docutils literal"><span class="pre">y</span></tt> that might be generated 
+by a stimulus <tt class="docutils literal"><span class="pre">x</span></tt>.</p>
+<p>Because there is different variability in 
+the response to different stimuli, the
+scale factor <tt class="docutils literal"><span class="pre">s_y</span></tt> is required.</p>
+<p>An uncertain real number can be used for <tt class="docutils literal"><span class="pre">x</span></tt>, in which
+case the associated uncertainty is also propagated into <tt class="docutils literal"><span class="pre">y</span></tt>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="type_a.LineFitWTLS">
+<em class="property">class </em><tt class="descname">LineFitWTLS</tt><big>(</big><em>a</em>, <em>b</em>, <em>ssr</em>, <em>N</em><big>)</big><a class="headerlink" href="#type_a.LineFitWTLS" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object holds results from a TLS linear regression to data.</p>
+<dl class="attribute">
+<dt id="type_a.LineFitWTLS.N">
+<tt class="descname">N</tt><a class="headerlink" href="#type_a.LineFitWTLS.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of points in the sample</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="type_a.LineFitWTLS.a_b">
+<tt class="descname">a_b</tt><a class="headerlink" href="#type_a.LineFitWTLS.a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intercept and slope as uncertain numbers</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="type_a.LineFitWTLS.ssr">
+<tt class="descname">ssr</tt><a class="headerlink" href="#type_a.LineFitWTLS.ssr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of the squared residuals</p>
+<p>The sum of the squared deviations between values 
+predicted by  the model and the actual data.</p>
+<p>If weights are used during the fit, the squares of 
+weighted deviations are summed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.merge_components">
+<tt class="descname">merge_components</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#type_a.merge_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the uncertainty components of <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> &#8211; an uncertain real or complex number</li>
+<li><strong>b</strong> &#8211; an uncertain real or complex number</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">an uncertain number with the
+uncertainty components of both
+<tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The values of <tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> must be equal
+and the components of uncertainty associated with
+<tt class="docutils literal"><span class="pre">a</span></tt> and <tt class="docutils literal"><span class="pre">b</span></tt> must be distinct, otherwise
+a <tt class="xref py py-class docutils literal"><span class="pre">RuntimeError</span></tt> will be raised.</p>
+<p>Use this function to combine results from
+type-A and type-B uncertainty analyses 
+performed on a common sequence of data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Some judgement will be required as to
+when it is appropriate to merge 
+uncertainty components.</p>
+<p class="last">There is a risk of &#8216;double-counting&#8217;
+uncertainty if type-B components
+are contributing to the variability
+observed in the data, and therefore
+assessed in a type-A analysis.</p>
+</div>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># From Appendix H3 in the GUM</span>
+
+<span class="c"># Thermometer readings (degrees C)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mf">21.521</span><span class="p">,</span><span class="mf">22.012</span><span class="p">,</span><span class="mf">22.512</span><span class="p">,</span><span class="mf">23.003</span><span class="p">,</span><span class="mf">23.507</span><span class="p">,</span>
+    <span class="mf">23.999</span><span class="p">,</span><span class="mf">24.513</span><span class="p">,</span><span class="mf">25.002</span><span class="p">,</span><span class="mf">25.503</span><span class="p">,</span><span class="mf">26.010</span><span class="p">,</span><span class="mf">26.511</span><span class="p">)</span>
+
+<span class="c"># Observed differences with calibration standard (degrees C)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.171</span><span class="p">,</span><span class="o">-</span><span class="mf">0.169</span><span class="p">,</span><span class="o">-</span><span class="mf">0.166</span><span class="p">,</span><span class="o">-</span><span class="mf">0.159</span><span class="p">,</span><span class="o">-</span><span class="mf">0.164</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.165</span><span class="p">,</span><span class="o">-</span><span class="mf">0.156</span><span class="p">,</span><span class="o">-</span><span class="mf">0.157</span><span class="p">,</span><span class="o">-</span><span class="mf">0.159</span><span class="p">,</span><span class="o">-</span><span class="mf">0.161</span><span class="p">,</span><span class="o">-</span><span class="mf">0.160</span><span class="p">)</span>
+
+<span class="c"># Arbitrary offset temperature (degrees C)</span>
+<span class="n">t_0</span> <span class="o">=</span> <span class="mf">20.0</span>
+
+<span class="c"># Calculate the temperature relative to t_0</span>
+<span class="n">t_rel</span> <span class="o">=</span> <span class="p">[</span> <span class="n">t_k</span> <span class="o">-</span> <span class="n">t_0</span> <span class="k">for</span> <span class="n">t_k</span> <span class="ow">in</span> <span class="n">t</span> <span class="p">]</span>
+
+<span class="c"># A common systematic error in all differences</span>
+<span class="n">e_sys</span> <span class="o">=</span> <span class="n">ureal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="n">b_type_b</span> <span class="o">=</span> <span class="p">[</span> <span class="n">b_k</span> <span class="o">+</span> <span class="n">e_sys</span> <span class="k">for</span> <span class="n">b_k</span> <span class="ow">in</span> <span class="n">b</span> <span class="p">]</span>
+
+<span class="c"># Type-A least-squares regression</span>
+<span class="n">y_1_a</span><span class="p">,</span> <span class="n">y_2_a</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">line_fit</span><span class="p">(</span><span class="n">t_rel</span><span class="p">,</span><span class="n">b_type_b</span><span class="p">)</span><span class="o">.</span><span class="n">a_b</span>
+
+<span class="c"># Type-B least-squares regression</span>
+<span class="n">y_1_b</span><span class="p">,</span> <span class="n">y_2_b</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">line_fit</span><span class="p">(</span><span class="n">t_rel</span><span class="p">,</span><span class="n">b_type_b</span><span class="p">)</span>
+
+<span class="c"># `y_1` and `y_2` have uncertainty components  </span>
+<span class="c"># related to the type-A analysis as well as the </span>
+<span class="c"># type-B systematic error</span>
+<span class="n">y_1</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">merge_components</span><span class="p">(</span><span class="n">y_1_a</span><span class="p">,</span><span class="n">y_1_b</span><span class="p">)</span>
+<span class="n">y_2</span> <span class="o">=</span> <span class="n">type_a</span><span class="o">.</span><span class="n">merge_components</span><span class="p">(</span><span class="n">y_2_a</span><span class="p">,</span><span class="n">y_2_b</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.chisq_p">
+<tt class="descname">chisq_p</tt><big>(</big><em>nu</em>, <em>x</em><big>)</big><a class="headerlink" href="#type_a.chisq_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the propability that chi-squared could be less than <tt class="docutils literal"><span class="pre">x</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nu</strong> &#8211; the number of degrees of freedom</li>
+<li><strong>x</strong> &#8211; sum of squared residuals</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the incomplete gamma function <tt class="docutils literal"><span class="pre">P(nu,x)</span></tt></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><tt class="docutils literal"><span class="pre">P(nu,x)</span></tt> is the probability that any random 
+set of <cite>N</cite> points would give a value of chi-squared  
+less than the observed value <tt class="docutils literal"><span class="pre">x</span></tt></p>
+<p>See: P R Bevington, <em>Data reduction and error analysis
+for the physical sciences</em> (McGraw-Hill)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">type_a</span><span class="o">.</span><span class="n">chisq_p</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">3.94</span><span class="p">)</span>
+<span class="go">0.049986909209909315</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="type_a.chisq_q">
+<tt class="descname">chisq_q</tt><big>(</big><em>nu</em>, <em>x</em><big>)</big><a class="headerlink" href="#type_a.chisq_q" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the propability that chi-squared could exceed <tt class="docutils literal"><span class="pre">x</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nu</strong> &#8211; the number of degrees of freedom</li>
+<li><strong>x</strong> &#8211; sum of squared residuals</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">the incomplete gamma function <tt class="docutils literal"><span class="pre">Q(nu,x)</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">P(nu,x)</span></tt></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><tt class="docutils literal"><span class="pre">Q(nu,x)</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">P(nu,x)</span></tt> is the probability that any random 
+set of <cite>N</cite> points would give a value of chi-squared greater 
+than or equal to the observed value <tt class="docutils literal"><span class="pre">x</span></tt></p>
+<p>See: P R Bevington, <em>Data reduction and error analysis for the
+physical sciences</em> (McGraw-Hill)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">type_a</span><span class="o">.</span><span class="n">chisq_q</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">3.94</span><span class="p">)</span>
+<span class="go">0.9500130907900907</span>
+</pre></div>
+</div>
+<p>This function might be used after a weighted least-squares 
+regression has been performed, to assess the goodness of fit. 
+<a class="reference internal" href="#type_a.chisq_q" title="type_a.chisq_q"><tt class="xref py py-func docutils literal"><span class="pre">chisq_q()</span></tt></a> can calculate the probability that 
+a value of sum-squared-residuals could be exceeded by chance.  
+(See Numerical Recipes in C: The Art of Scientific Computing, 
+section 15.1).</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="type_b.html" class="btn btn-neutral float-right" title="Evaluating type-B uncertainty"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="core_functions.html" class="btn btn-neutral" title="Core Functions and Classes"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+
+    <!---
+    <div class="creativecommons">
+    <p>
+        This work is under a 
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+        Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+        </a>.
+    </p>
+    </div>
+    -->
+<!--
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+-->
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

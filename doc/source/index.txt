@@ -1,0 +1,41 @@
+.. GTXL documentation master file, created by
+   sphinx-quickstart on Fri Dec 19 13:29:40 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+***************************************
+GUM Tree Excel Calculator Documentation
+***************************************
+
+License
+=======
+
+.. toctree::
+   :maxdepth: 2
+
+   License <license_section>
+
+Getting started
+===============
+.. toctree::
+   :maxdepth: 2
+
+   Installation <installation>
+   
+User Guide
+==========
+
+.. toctree::
+    :maxdepth: 2
+
+    Introduction <introduction>
+    Worksheet functions <worksheet_functions>
+    Extension modules <extension_modules>
+
+Reference
+=========
+
+.. toctree::
+   :maxdepth: 2
+
+    Reference <reference>

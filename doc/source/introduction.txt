@@ -1,0 +1,47 @@
+.. _introduction:
+
+************
+Introduction
+************
+   
+The ``GTXL`` calculator
+=======================
+
+``GTXL`` is an Excel add-in for evaluating measurement uncertainty in spreadsheets. 
+
+The add-in has a worksheet function :func:`GTX` that passes instructions to an uncertainty calculator running in the background. The instructions are evaluated and something that Excel can display in a cell is returned. For example, writing ::
+
+    =gtx("3*(2+5)") 
+    
+in a cell will return the number 21, which is the result of evaluating the arithmetic expression.
+
+Excel can only display numbers and text strings, but the calculator can associate names with any type of result. Insead of the above, we could have written ::
+
+    =gtx("y = 3*(2+5)") 
+
+in which case ``y`` is displayed. To obtain the value of ``'y'`` we could write ::
+
+    =gtx("value(y)", cell_ref_to_y) 
+
+in another cell, where ``cell_ref_to_y`` is a reference to the cell containing ``y``.
+
+The ability to name things allows ``GTXL`` to do uncertainty calculations. For example ::
+
+    =gtx("x = ureal(1.5,0.3)")
+    
+defines an uncertain number with a value of 1.5 and an uncertainty of 0.3. Excel cannot display uncertain numbers, but, by assigning the name ``x``, it is possible to crry out uncertain-number calculations. For example, ::
+
+    =gtx("y = 2 * x",cell_ref_to_x)
+
+associates the name ``y`` with twice the uncertain number ``x``. 
+
+To obtain the value and uncertainty of ``y``, ::
+
+    =gtx("value(y)",cell_ref_to_y)
+    =gtx("uncertainty(y)",cell_ref_to_y)
+
+will return a value 3 and an uncertainty 0.6, respectively.
+
+.. note::
+
+    The names used in the ``GTXL`` strings do not have to be unique. We have talked about defining ``y`` in two different ways above but, provided the definitions are in different cells, they do not interfere with each other. The name ``y`` is convenient when writing an equation, but it is the ``cell_ref_to_y`` reference that makes the connection between the name ``y`` and a definition in a particular cell.

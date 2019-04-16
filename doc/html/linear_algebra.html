@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Linear algebra &mdash; GUM Tree Excel</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="GUM Tree Excel" href="index.html"/>
+        <link rel="up" title="GTC Modules" href="reference.html"/>
+        <link rel="next" title="Additional functions" href="functions.html"/>
+        <link rel="prev" title="Reporting functions" href="reporting_functions.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+    <!--  Google analytics -->
+    <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-37615363-2', 'uncertainnumbers.com');
+          ga('send', 'pageview');
+    </script> 
+    
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> GTXL</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="license_section.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#obtaining-gtxl">Obtaining GTXL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-for-the-first-time">Installing for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#upgrading">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#uninstalling">Uninstalling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#the-gtxl-calculator">The <tt class="docutils literal"><span class="pre">GTXL</span></tt> calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="worksheet_functions.html">Worksheet functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx.html">GTX()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fn_gtx_err.html">GTX_ERR()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension_modules.html">Extension modules</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html"> Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_functions.html"> Core functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_a.html"> Evaluating type-A uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_b.html"> Evaluating type-B uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting_functions.html"> Reporting uncertainty</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""> Linear algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html"> Additional functions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">GTXL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html"></a> &raquo;</li> 
+      
+          <li><a href="reference.html">GTC Modules</a> &raquo;</li>
+      
+    <li>Linear algebra</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="linear-algebra">
+<span id="id1"></span><h1>Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h1>
+<p>This module supports array and matrix operations.</p>
+<p>The prefix <a class="reference internal" href="#module-linear_algebra" title="linear_algebra"><tt class="xref py py-mod docutils literal"><span class="pre">linear_algebra</span></tt></a> (or the alias <tt class="docutils literal"><span class="pre">la</span></tt>) is needed as to resolve the names of objects defined in this module.</p>
+<span class="target" id="module-linear_algebra"></span><div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a></li>
+<li><a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="arithmetic-operations">
+<h2>Arithmetic operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Arithmetic operations are defined for both arrays and matrices 
+(unary <tt class="docutils literal"><span class="pre">+</span></tt> and <tt class="docutils literal"><span class="pre">-</span></tt>, and binary <tt class="docutils literal"><span class="pre">+</span></tt>, <tt class="docutils literal"><span class="pre">-</span></tt> and <tt class="docutils literal"><span class="pre">*</span></tt>).
+The multiplication  operator <tt class="docutils literal"><span class="pre">*</span></tt> is implemented element-wise
+for arrays, but performs the matrix product for matrices.</p>
+<p>When one argument is a scalar, it is applied to each element 
+of the array, or matrix, in turn.</p>
+<p><a class="reference internal" href="#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a> and <a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a> define attributes 
+as short-hand for some operations:</p>
+<ul class="simple">
+<li>the <a class="reference internal" href="#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a>, or <a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a>, attribute
+<tt class="docutils literal"><span class="pre">T</span></tt> transposes the object</li>
+<li>the <a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a> attribute <tt class="docutils literal"><span class="pre">I</span></tt> evaluates the
+matrix inverse</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The functions <a class="reference internal" href="#linear_algebra.inverse" title="linear_algebra.inverse"><tt class="xref py py-func docutils literal"><span class="pre">inverse()</span></tt></a>, <a class="reference internal" href="#linear_algebra.transpose" title="linear_algebra.transpose"><tt class="xref py py-func docutils literal"><span class="pre">transpose()</span></tt></a>, <a class="reference internal" href="#linear_algebra.solve" title="linear_algebra.solve"><tt class="xref py py-func docutils literal"><span class="pre">solve()</span></tt></a> 
+and <a class="reference internal" href="#linear_algebra.det" title="linear_algebra.det"><tt class="xref py py-func docutils literal"><span class="pre">det()</span></tt></a> implement the usual linear algebra operations.</p>
+<p>Functions <a class="reference internal" href="#linear_algebra.asmatrix" title="linear_algebra.asmatrix"><tt class="xref py py-func docutils literal"><span class="pre">asmatrix()</span></tt></a> and <a class="reference internal" href="#linear_algebra.asarray" title="linear_algebra.asarray"><tt class="xref py py-func docutils literal"><span class="pre">asarray()</span></tt></a> 
+change the type of object. The function <a class="reference internal" href="#linear_algebra.aslist" title="linear_algebra.aslist"><tt class="xref py py-func docutils literal"><span class="pre">aslist()</span></tt></a>
+turns an array or matrix into a (possibly nested) list.</p>
+<p>The functions <a class="reference internal" href="#linear_algebra.identity" title="linear_algebra.identity"><tt class="xref py py-func docutils literal"><span class="pre">identity()</span></tt></a>, <a class="reference internal" href="#linear_algebra.empty" title="linear_algebra.empty"><tt class="xref py py-func docutils literal"><span class="pre">empty()</span></tt></a>, <a class="reference internal" href="#linear_algebra.zeros" title="linear_algebra.zeros"><tt class="xref py py-func docutils literal"><span class="pre">zeros()</span></tt></a>
+and <a class="reference internal" href="#linear_algebra.ones" title="linear_algebra.ones"><tt class="xref py py-func docutils literal"><span class="pre">ones()</span></tt></a> create simple arrays.</p>
+</div></blockquote>
+</div>
+<div class="section" id="array-broadcasting">
+<h2>Array broadcasting<a class="headerlink" href="#array-broadcasting" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>When binary arithmetic operations are used on arrays, the shape
+of the array may be changed for the purposes of the
+calculation. The rules are as follows:</p>
+<ul class="simple">
+<li>If arrays do not have the same number of dimensions, then
+dimensions of size <cite>1</cite> are prepended to the smaller array&#8217;s
+shape</li>
+</ul>
+<p>Following this, the size of array dimensions are compared and
+checked for compatibility. Array dimensions are compatible when</p>
+<ul class="simple">
+<li>dimension sizes are equal, or</li>
+<li>one of the dimension sizes is <cite>1</cite></li>
+</ul>
+<p>Finally, if either of the compared dimension sizes is <cite>1</cite>, the
+larger dimension size is used. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2,) (2, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="go">array([[2, 3],</span>
+<span class="go">[3, 4]])</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="linear_algebra.array">
+<em class="property">class </em><tt class="descname">array</tt><big>(</big><em>obj</em>, <em>copy=True</em><big>)</big><a class="headerlink" href="#linear_algebra.array" title="Permalink to this definition">¶</a></dt>
+<dd><p>An array object stores a regular array of elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> &#8211; an array, a matrix, a sequence or an iterable object</li>
+<li><strong>copy</strong> &#8211; Boolean</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>An <a class="reference internal" href="#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a> can be constructed from another <a class="reference internal" href="#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a> 
+or <a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a>, a sequence or an iterator.
+Nested sequences or iterators create multidimensional arrays.</p>
+<p>When <tt class="docutils literal"><span class="pre">copy</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt> and <tt class="docutils literal"><span class="pre">obj</span></tt> is an <a class="reference internal" href="#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a> or,
+<a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a>, data is shared, not copied.</p>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([0, 1, 2, 3])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[0, 1],</span>
+<span class="go">[2, 3]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([[0, 1],</span>
+<span class="go">[2, 3]])</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="linear_algebra.array.T">
+<tt class="descname">T</tt><a class="headerlink" href="#linear_algebra.array.T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transpose</p>
+<p>(see also <a class="reference internal" href="#linear_algebra.transpose" title="linear_algebra.transpose"><tt class="xref py py-func docutils literal"><span class="pre">transpose()</span></tt></a>)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xt</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xt</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(4, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span>
+<span class="go">[[0 1 2 3]</span>
+<span class="go">[4 5 6 7]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">xt</span>
+<span class="go">[[0 4]</span>
+<span class="go">[1 5] </span>
+<span class="go">[2 6] </span>
+<span class="go">[3 7]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="linear_algebra.array.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#linear_algebra.array.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_copy</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_copy</span>
+<span class="go">array([1, 2])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([1, 2])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_copy</span>
+<span class="go">array([1, 2])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([1, 3])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="linear_algebra.array.flat">
+<tt class="descname">flat</tt><a class="headerlink" href="#linear_algebra.array.flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a 1-D iterator</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span>
+<span class="go">[[1 2]</span>
+<span class="go">[3 4]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xf</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">flat</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">xf</span>
+<span class="go">[1 2 3 4]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="linear_algebra.array.shape">
+<tt class="descname">shape</tt><a class="headerlink" href="#linear_algebra.array.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>a tuple of dimension sizes</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="linear_algebra.matrix">
+<em class="property">class </em><tt class="descname">matrix</tt><big>(</big><em>obj</em>, <em>copy=True</em><big>)</big><a class="headerlink" href="#linear_algebra.matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>A matrix stores a 2-by-2 array of objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> &#8211; an array, a matrix, a sequence or an iterable</li>
+<li><strong>copy</strong> &#8211; Boolean</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A <a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a> may be constructed from an <a class="reference internal" href="#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a> 
+or <a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a>, a sequence or an iterator.</p>
+<p>When <tt class="docutils literal"><span class="pre">copy</span></tt> is <tt class="docutils literal"><span class="pre">True</span></tt> and <tt class="docutils literal"><span class="pre">obj</span></tt> is an <a class="reference internal" href="#linear_algebra.array" title="linear_algebra.array"><tt class="xref py py-class docutils literal"><span class="pre">array</span></tt></a>,
+or <a class="reference internal" href="#linear_algebra.matrix" title="linear_algebra.matrix"><tt class="xref py py-class docutils literal"><span class="pre">matrix</span></tt></a>, data is shared, not copied.</p>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">matrix([[0, 1, 2, 3]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">matrix([[0, 1],</span>
+<span class="go">[2, 3]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">matrix([[0, 1],</span>
+<span class="go">[2, 3]])</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="linear_algebra.matrix.I">
+<tt class="descname">I</tt><a class="headerlink" href="#linear_algebra.matrix.I" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the matrix inverse</p>
+<p>(see also <a class="reference internal" href="#linear_algebra.inverse" title="linear_algebra.inverse"><tt class="xref py py-func docutils literal"><span class="pre">inverse()</span></tt></a>)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">I</span>
+<span class="go">matrix([[0.9999999999999998, 1.1102230246251565e-16],</span>
+<span class="go">[0.0, 1.0000000000000002]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="linear_algebra.matrix.T">
+<tt class="descname">T</tt><a class="headerlink" href="#linear_algebra.matrix.T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transpose</p>
+<p>(see also <a class="reference internal" href="#linear_algebra.transpose" title="linear_algebra.transpose"><tt class="xref py py-func docutils literal"><span class="pre">transpose()</span></tt></a>)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xt</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xt</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(4, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span>
+<span class="go">[[0 1 2 3]</span>
+<span class="go">[4 5 6 7]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">xt</span>
+<span class="go">[[0 4]</span>
+<span class="go">[1 5] </span>
+<span class="go">[2 6] </span>
+<span class="go">[3 7]]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="linear_algebra.matrix.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#linear_algebra.matrix.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_copy</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_copy</span>
+<span class="go">array([1, 2])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([1, 2])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a_copy</span>
+<span class="go">array([1, 2])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([1, 3])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="linear_algebra.matrix.flat">
+<tt class="descname">flat</tt><a class="headerlink" href="#linear_algebra.matrix.flat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a 1-D iterator</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span>
+<span class="go">[[1 2]</span>
+<span class="go">[3 4]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xf</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">flat</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">xf</span>
+<span class="go">[1 2 3 4]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="linear_algebra.matrix.shape">
+<tt class="descname">shape</tt><a class="headerlink" href="#linear_algebra.matrix.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>a tuple of dimension sizes</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.det">
+<tt class="descname">det</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#linear_algebra.det" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the matrix determinant</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span>
+<span class="go">[[0 1]</span>
+<span class="go">[2 3]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">-2.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.inverse">
+<tt class="descname">inverse</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#linear_algebra.inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the matrix inverse</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*</span> <span class="n">la</span><span class="o">.</span><span class="n">inverse</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">matrix([[1.0, 0.0],</span>
+<span class="go">[4.440892098500626e-16, 1.0]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.transpose">
+<tt class="descname">transpose</tt><big>(</big><em>a</em>, <em>axes=None</em><big>)</big><a class="headerlink" href="#linear_algebra.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transpose of <tt class="docutils literal"><span class="pre">a</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> &#8211; an array, or matrix</li>
+<li><strong>axes</strong> &#8211; a sequence of axis indices</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">an array, or matrix ( the same type as <tt class="docutils literal"><span class="pre">a</span></tt> ).</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>A new object is created (ie, <tt class="docutils literal"><span class="pre">a</span></tt> is not affected).</li>
+<li>By default, the function will reverse the dimensions
+of <tt class="docutils literal"><span class="pre">a</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">axes</span></tt> may contain a sequence of integers indexing
+the dimensions of <tt class="docutils literal"><span class="pre">a</span></tt>. The axes of <tt class="docutils literal"><span class="pre">a</span></tt> will then
+be permuted according to the contents of <tt class="docutils literal"><span class="pre">axes</span></tt>.</li>
+</ul>
+</div>
+<p><strong>Examples</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">array([[0, 2],</span>
+<span class="go">[1, 3]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">x</span>
+<span class="go">[[[0 1]</span>
+<span class="go">[2 3] </span>
+<span class="go">[4 5]]</span>
+<span class="go">[[6 7]</span>
+<span class="go">[8 9] </span>
+<span class="go">[10 11]]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="go">array([[[0, 2, 4],</span>
+<span class="go">[1, 3, 5]],</span>
+<span class="go">[[6, 8, 10],</span>
+<span class="go">[7, 9, 11]]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.identity">
+<tt class="descname">identity</tt><big>(</big><em>ndim</em><big>)</big><a class="headerlink" href="#linear_algebra.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an identity array with <tt class="docutils literal"><span class="pre">ndim</span></tt> dimensions</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">array([[1.0, 0, 0],</span>
+<span class="go">[0, 1.0, 0],</span>
+<span class="go">[0, 0, 1.0]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.ones">
+<tt class="descname">ones</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#linear_algebra.ones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array of <tt class="docutils literal"><span class="pre">shape</span></tt> containing <tt class="docutils literal"><span class="pre">1</span></tt>&#8216;s</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">array([[1, 1, 1],</span>
+<span class="go">[1, 1, 1]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.empty">
+<tt class="descname">empty</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#linear_algebra.empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array of <tt class="docutils literal"><span class="pre">shape</span></tt> containing <tt class="docutils literal"><span class="pre">None</span></tt> elements</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">array([[None, None, None],</span>
+<span class="go">[None, None, None]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.zeros">
+<tt class="descname">zeros</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#linear_algebra.zeros" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array of <tt class="docutils literal"><span class="pre">shape</span></tt> containing <tt class="docutils literal"><span class="pre">0</span></tt>&#8216;s</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
+<span class="go">array([[0, 0, 0],</span>
+<span class="go">[0, 0, 0]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.solve">
+<tt class="descname">solve</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#linear_algebra.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <span class="math">\(x\)</span>, the solution of <span class="math">\(a \cdot x = b\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>a</strong> &#8211; an array or matrix</li>
+<li><strong>b</strong> &#8211; an array or matrix</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array or matrix</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The type of object returned depends on the type of arguments.
+A matrix is returned if <tt class="docutils literal"><span class="pre">a</span></tt> or <tt class="docutils literal"><span class="pre">b</span></tt> is a matrix, otherwise
+an array is returned.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="go">matrix([[1.0, 2.0]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.asarray">
+<tt class="descname">asarray</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#linear_algebra.asarray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">a</span></tt> as an array without copying</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">array([1, 2, 3])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">asmatrix</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">matrix([[1, 2, 3]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.asmatrix">
+<tt class="descname">asmatrix</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#linear_algebra.asmatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <tt class="docutils literal"><span class="pre">a</span></tt> as a matrix without copying</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">la</span><span class="o">.</span><span class="n">asmatrix</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">matrix([[0, 1, 2, 3]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="linear_algebra.aslist">
+<tt class="descname">aslist</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#linear_algebra.aslist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the data in <tt class="docutils literal"><span class="pre">a</span></tt></p>
+<p>A list is constructed by iterating over the elements of <tt class="docutils literal"><span class="pre">a</span></tt>.
+If <tt class="docutils literal"><span class="pre">a</span></tt>&#8216;s elements are iterable, a nested list is created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> &#8211; an iterable object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="functions.html" class="btn btn-neutral float-right" title="Additional functions"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="reporting_functions.html" class="btn btn-neutral" title="Reporting functions"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+
+    <!---
+    <div class="creativecommons">
+    <p>
+        This work is under a 
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+        Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+        </a>.
+    </p>
+    </div>
+    -->
+<!--
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+-->
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

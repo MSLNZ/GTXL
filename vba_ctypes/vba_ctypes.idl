@@ -1,0 +1,41 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+        uuid(6744394C-F5AA-4337-9C10-40CF4AFE4D93),
+        dual,
+        oleautomation
+]
+interface IGtx : IDispatch {
+
+        HRESULT startup(
+            [out, retval] BSTR *presult
+        );
+        
+        HRESULT gtc(
+            [in] BSTR caller, 
+            [in] BSTR expression, 
+            [in] BSTR arguments,
+            [out, retval] VARIANT *presult
+        );
+        
+        HRESULT error(
+            [in] BSTR caller, 
+            [in] BSTR cellref, 
+            [out, retval] BSTR *presult
+        );
+        
+        HRESULT empty(
+            [in] BSTR caller
+        );        
+}
+
+[   uuid(47B71068-6F7B-48FF-B928-15B33C83F949) ]
+library GtxTypeLib {
+        importlib("stdole2.tlb");
+
+        [ uuid(72D37073-ED56-46E0-9E7C-BBAB0FFFC5C1) ]
+        coclass GtxObject {
+            [default] interface IGtx;
+        };
+};

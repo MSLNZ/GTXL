@@ -1,0 +1,7 @@
+.. _licenses:
+
+*******
+License
+******* 
+.. literalinclude:: ../../license/GTXL_license.txt
+    :language: none

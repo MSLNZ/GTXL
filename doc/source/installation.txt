@@ -1,0 +1,88 @@
+.. _installation:
+
+************
+Installation
+************
+   
+Obtaining GTXL
+==============
+
+``GTXL`` is available without charge from http://mst.irl.cri.nz. Registration is required and use of the tool is subject to a non-
+exclusive, non-transferable and non-sublicensable limited end-user license agreement (:ref:`licenses`).
+
+.. _install:
+
+Installing for the first time
+=============================
+
+Install software
+----------------
+
+First run ``setup.exe`` to copy the GUM Tree Excel Calculator files to your computer. This will also install the COM server. 
+
+.. note::
+
+    Administrator rights are required.
+    
+Load the add-in
+---------------
+ 
+Next, the Excel add-in can be loaded as follows:
+
+    * Open Excel 
+    * Navigate to the ``Add-Ins`` dialog in the ``Options`` menu and click ``Go ...`` to access the ``Manage Add-Ins`` dialog. 
+    * Click ``Browse ...`` and then navigate to the ``addin`` folder of the ``GTXL`` installation, typically :: 
+    
+        C:\Program Files (x86)\GTXL\addin
+        
+    * Select ``gtxl.xlam`` and load the add-in. A dialog box should appear, indicating that the add-in has been successfully loaded.
+
+.. _upgrade:
+
+Upgrading 
+=========
+
+Run the new ``setup.exe`` installer to upgrade ``GTXL``. 
+
+You will be prompted to replace any previous version.
+
+.. note::
+
+    Excel add-in settings are not affected by an upgrade. The new ``GTXL`` version should be installed in the same directory as the previous version. 
+
+    
+.. _uninstall:
+
+Uninstalling
+============
+
+Unload the Excel add-in first, as follows
+
+    * Open Excel 
+    * Navigate to the ``Add-Ins`` dialog in the Excel ``Options`` menu and then push ``Go ...`` to access the ``Manage Add-Ins`` dialog. 
+    * An item called `GTXL Uncertainty Tool` will appear with a tick mark in this dialog. Simply un-tick the entry, then close the dialog and Excel. 
+
+Then remove the software
+
+The *Add / Remove Programs* utility of the *Windows Control Panel* can be used to remove the software. Alternatively, there is a link to the ``uninstall.exe`` program  the ``GTXL`` Windows *Start* menu folder. 
+
+.. note::
+
+    Administrator rights are required.
+
+    Not all files are removed by this process, but any remaining files and folders can be deleted manually later, if necessary.
+
+Documentation
+=============
+
+Several forms of documentation are provided. They can be accessed from shortcuts in the ``GTXL`` group in the Windows *Start* menu. 
+    
+Examples
+========
+
+A folder containing examples is located by a shortcut in the ``GTXL`` group of the Windows *Start* menu.
+
+.. note::
+
+    Usually the ``Examples`` folder is located under ``C:\Program Files (x86)``, where Administrator privileges are needed to modify files. It may be convenient to make a copy of the ``Examples`` folder in another location on the computer where file access is not restricted.
+

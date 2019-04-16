@@ -1,0 +1,13 @@
+.. _linear_algebra:
+
+**************
+Linear algebra
+**************
+
+This module supports array and matrix operations. 
+
+The prefix :mod:`linear_algebra` (or the alias ``la``) is needed as to resolve the names of objects defined in this module.
+
+.. automodule:: linear_algebra
+	:members:
+	:inherited-members:

@@ -1,0 +1,12 @@
+.. _functions: 
+
+********************
+Additional functions
+********************
+
+The prefix :mod:`function` (or the alias ``fn``) is needed as to resolve the names of objects defined in this module.
+
+
+.. automodule:: function
+	:members: 
+	:inherited-members:
