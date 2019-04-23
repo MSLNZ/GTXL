@@ -1,7 +1,6 @@
 import sys
-print sys.path
-if "C:\\py27" not in sys.path:
-    sys.path.append("C:\\py27")
+my_stuff = r'C:\py27\gtxl'
+if my_stuff not in sys.path: sys.path.append(my_stuff)
 
 from gtxl.server.gtc_xl import GTXL
 
