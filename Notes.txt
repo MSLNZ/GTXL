@@ -1,0 +1,70 @@
+Inital work - 23 April 2019
+===========================
+
+miniconda3 (Python 3.7)
+
+(base) C:\Users\Blair>conda create -n py27 python=2.7 numpy
+(base) C:\Users\Blair>conda activate py27
+
+This has created an environment with Python 2.7.16 installed here:
+C:\Users\Blair\.conda\envs\py27
+
+Also need scipy
+(py27) C:\py27\GTXL\vba_ctypes>conda install scipy
+
+And pywin32
+(py27) C:\py27\gtxl\vba_ctypes>pip install pywin32
+
+Obtained a copy of `py2exe-0.6.10a1.win32-py2.7`. This appear to be the same as on my work computer.
+However, it was an EXE (Windows) installer and wouldn't work with conda.
+
+Got a wheel from https://www.lfd.uci.edu/~gohlke/pythonlibs/ and installed as follows:
+
+(py27) C:\Users\Blair>pip install py2exe-0.6.10a1-cp27-none-win_amd64.whl
+
+Same comtypes version as on work PC
+(py27) C:\Users\Blair>pip install comtypes==1.1.1
+
+Downloaded the MSVC++2008 Express Edition complier and toolset from MS (SP1), also the SDK (but would not install correctly. Registration failed.
+May not have needed this (wanted the MIDL complier)
+
+Ran `server.py` with these lines uncommented:
+# from comtypes.client import GetModule
+# GetModule("vba_ctypes.tlb")
+ 
+(py27) C:\py27\gtxl\vba_ctypes>python server.py
+# Generating comtypes.gen._47B71068_6F7B_48FF_B928_15B33C83F949_0_0_0
+# Generating comtypes.gen._00020430_0000_0000_C000_000000000046_0_2_0
+# Generating comtypes.gen.stdole
+# Generating comtypes.gen.GtxTypeLib
+Usage: server.py [-regserver] [-unregserver] [-nodebug] [-f logformat] [-l loggername=level]
+
+Then again with those lines commented out, these lines in the `__main__` block:
+    from comtypes.server.register import UseCommandLine
+    UseCommandLine(GtxObjectImpl)
+and the `regserver` command line option (needed an Administrator window). There is no output
+but the server is registered.
+
+Finally, the two lines above are commented out and the three lines in the `__main__` block are used to test the server (don't need administrator or command line now): 
+    from comtypes.client import CreateObject
+    x = CreateObject("GtxTypeLib.GtxObject")
+    print x.error("1cc","2")
+This prints "OK".
+
+You can also see that the Registry has been modified using regeditor (search for 'GtxTypeLib.GtxObject'). You will find an entry.
+
+To unregister the server (Admin prompt) 
+(py27) C:\py27\gtxl\vba_ctypes>python server.py -unregserver
+
+!!Problem!!
+I tried to run the GTXL Demo spreadsheet but when I attempted to activate the addin VBA told me to update the VBA declarations to 64 bit. I presume that I have a 64-bit Pyhton 2.7 environmment and so the COM server is 64 bit.
+
+So, created another environment (note: Don't unset the CONDA_FORCE_32BIT for as long as you need the 32 bit python, otherwise conda goes with 64bit. When finally you want to revert do: `set CONDA_FORCE_32BIT=`)
+(base) C:\Users\Blair>set CONDA_FORCE_32BIT=1
+(base) C:\Users\Blair>conda create -n py27_32 python=2.7 scipy numpy
+(py27_32) C:\Users\Blair\GTXL Project>pip install py2exe-0.6.10a1-cp27-none-win32.whl
+Also installed pywin32 and comtypes-1.1.1 (see above)
+
+??Not a problem??
+1. What I describe above about server.py creates a stub but the implementation is not there (need to run py2exe and create the server implementation).
+2. I tried the same operations on my work machine and got the same result, so nothing to worry about I think (because the server does build on that machine).
