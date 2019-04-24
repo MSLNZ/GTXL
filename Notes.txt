@@ -71,9 +71,13 @@ Also installed pywin32 and comtypes-1.1.1 (see above)
 
 VBA Problems - 24 April 2019
 ============================
-The demo spreadsheet is not working any more. There are VBA problems that I assume are due to changes in VBA (VBA7),
+The demo spreadsheet is not working. There are VBA problems that I assume are due to changes in VBA (VBA7),
 
 The function
     Function gtx(ByVal expr As String, ParamArray args() As Variant) As Variant
 When passed a single cell reference containing a number recognises the argument as a Range of Count=1. My code then seems to expect the contents to be a formula starting '=gtx(', which it isn't (it is the number, 10 say). 
 
+- 25 April 
+~~~~~~~~~~
+
+No, the problem is probably due to the very last changes to .xlam made in July 2015. The demo seems to work fine (Excel 2010 23-bit) at home with an .xlam from May 2015.  
