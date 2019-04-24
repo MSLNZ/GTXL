@@ -68,3 +68,12 @@ Also installed pywin32 and comtypes-1.1.1 (see above)
 ??Not a problem??
 1. What I describe above about server.py creates a stub but the implementation is not there (need to run py2exe and create the server implementation).
 2. I tried the same operations on my work machine and got the same result, so nothing to worry about I think (because the server does build on that machine).
+
+VBA Problems - 24 April 2019
+============================
+The demo spreadsheet is not working any more. There are VBA problems that I assume are due to changes in VBA (VBA7),
+
+The function
+    Function gtx(ByVal expr As String, ParamArray args() As Variant) As Variant
+When passed a single cell reference containing a number recognises the argument as a Range of Count=1. My code then seems to expect the contents to be a formula starting '=gtx(', which it isn't (it is the number, 10 say). 
+
