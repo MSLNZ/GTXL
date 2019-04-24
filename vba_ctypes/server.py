@@ -1,6 +1,9 @@
 import sys
-my_stuff = r'C:\py27\gtxl'
+my_stuff = r'C:\py27'
 if my_stuff not in sys.path: sys.path.append(my_stuff)
+my_gtc = r'C:\py27\GTC'
+if my_gtc not in sys.path: sys.path.append(my_gtc) 
+
 
 from gtxl.server.gtc_xl import GTXL
 
@@ -12,8 +15,9 @@ import os
 # # generate wrapper code for the type library, this needs
 # # to be done only once (but also each time the IDL file changes)
 # # !!! NB  It needs to be done before py2exe is run !!!
-from comtypes.client import GetModule
-GetModule("vba_ctypes.tlb")
+
+# from comtypes.client import GetModule
+# GetModule("vba_ctypes.tlb")
 
 # Something has been created here
 from comtypes.gen.GtxTypeLib import GtxObject
