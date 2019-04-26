@@ -80,4 +80,12 @@ When passed a single cell reference containing a number recognises the argument 
 - 25 April 
 ~~~~~~~~~~
 
-No, the problem is probably due to the very last changes to .xlam made in July 2015. The demo seems to work fine (Excel 2010 23-bit) at home with an .xlam from May 2015.  
+No, the problem is due to the very last changes to .xlam made in July 2015. Prior to that, the demo seems to work fine (Excel 2010 23-bit) at home with an .xlam from May 2015.  
+
+The intention of the modifications was to make sure that only cell references that contained a formula '=gtx(..." would be interpreted as UN references (to avoid references to cells with other data, perhaps due to changes in a sheet). However, the implementation was faulty.
+
+What should be done is to look at the .formula attribute of the range object, which will match '=gtx(..." when the cell referred to contains a gtx() command (the formula attribute seems to contain whatever text is executed in the cell - the value attribute is what gets displayed after execution). The faulty implementation relied on .HasFormula, but did not allow for a range type that did not have a formula (e.g., a reference to a cell containing a number)!
+
+When the cell referenced contains pure data rather than an UN, we should place a generic cell reference element in the pair that gets passed to GTC. That generic element is "[_]_!R0C0". 
+
+NB, the gtc() method in gtc_xl assumes that the `arguments` passed to it is a sequence of name : cell-to-references. That prevents gtx() from having direct arguments (e.g., =gtx('x=@',1) ). However, if gtc knew that the value did not need to be looked up it could make such substitutions. TODO: improve the error reporting for this case and try to implement this kind of substitution. 
