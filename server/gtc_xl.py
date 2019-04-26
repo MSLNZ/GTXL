@@ -34,9 +34,7 @@ import traceback
 _LOG_ = False    
 
 if _LOG_ :
-    # The log file will be written to 
-    #   `C:\Users\b.hall\AppData\Local\Temp`
-    
+    # The log file will be written to `filename`
     tmp = os.environ['TEMP']   
     logging.basicConfig(
         filename=r'C:\tmp\gtxl_log.txt',
@@ -50,7 +48,7 @@ __all__ = ('GTXL',)
 #--------------------------------------------------------------------------
 # !!!NB!!!
 # These re's may be too detailed, and therefore slow. It may be better to
-# define just a minimum signature to be used to triage the input and let
+# define just a minimum signature to be used to sort the input and let
 # Python throw an error if the string is malformed.
 
 # An assignment has the form: "valid_identifier (or tuple of identifiers) = anything", where
@@ -380,6 +378,7 @@ class GTXL(object):
         # `n_subs` might be > 0 yet `s` == "", or `n_subs` might 
         # be greater than the number of arguments supplied, 
         # these would be caused by user entry error. 
+        # print s,n_subs
         if n_subs != 0:
             
             # `n_subs` is the number of direct substitutions 
@@ -388,7 +387,7 @@ class GTXL(object):
             # NB, we must have the trailing ';' for this to work 
             # if there are no indirect arguments. 
             for x in xrange(n_subs):
-                 
+                # print s, len(s),i_split+1,iN
                 # Will raise ValueError if not found
                 i_split = s.index(";",i_split+1,iN)
                 
@@ -624,6 +623,9 @@ class GTXL(object):
         simply be returned.
         
         """
+        # print "caller,expression,arguments: {!r}, {!r}, {!r}".format(
+            # caller,expression,arguments
+        # )
         if _LOG_ : 
             logging.info(
                 '''gtc:
@@ -650,6 +652,7 @@ class GTXL(object):
             # Obtain a sequence of direct string values for substitution in `subs` 
             # and a mapping of names to values in `args`
             subs, args_ = self._arguments(arguments, n_substitutions)
+            # print "subs: ",subs
             
         except Exception as error:
             if _LOG_:
